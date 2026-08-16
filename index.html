@@ -236,6 +236,34 @@
       color: var(--accent-strong);
     }
 
+    .language-switch {
+      display: inline-flex;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      flex: 0 0 auto;
+    }
+
+    .language-switch button {
+      min-width: 38px;
+      min-height: 30px;
+      padding: 4px 8px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      background: var(--ink);
+      color: var(--surface);
+    }
+
     .support-menu {
       position: relative;
       display: inline-flex;
@@ -935,18 +963,22 @@
     <nav class="nav" aria-label="主导航">
       <a class="brand" href="#top" aria-label="马哥数据采集工具首页">                                                                                          
     <img src="images/logo.png" alt="马哥数据采集工具首页" width="36" height="36" style="border-radius:9px">                                                     
-    <span>马哥数据采集</span>                                                                                                                           
+    <span data-zh="马哥数据采集" data-en="Mage Data Tools">马哥数据采集</span>                                                                                                                           
     </a>
       <div class="nav-links">
-        <a href="#china">国内平台</a>
-        <a href="#global">海外平台</a>
-        <a href="#guide">如何选择</a>
+        <a href="#china"><span data-zh="国内平台" data-en="China Platforms">国内平台</span></a>
+        <a href="#global"><span data-zh="海外平台" data-en="Global Platforms">海外平台</span></a>
+        <a href="#guide"><span data-zh="如何选择" data-en="How to Choose">如何选择</span></a>
         <a href="https://github.com/mashukui" target="_blank" rel="noopener noreferrer">GitHub</a>
         <div class="support-menu">
-          <button class="support-trigger" type="button" aria-label="显示技术支持公众号" aria-controls="support-popover" aria-expanded="false">技术支持</button>
+          <button class="support-trigger" type="button" aria-label="显示技术支持公众号" aria-controls="support-popover" aria-expanded="false"><span data-zh="技术支持" data-en="Support">技术支持</span></button>
           <div class="support-popover" id="support-popover">
             <img src="images/wechatv4.png" width="1146" height="392" alt="马哥公众号，扫码关注获取技术支持">
           </div>
+        </div>
+        <div class="language-switch" aria-label="语言切换">
+          <button type="button" data-language="zh-CN" aria-pressed="true">中文</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
         </div>
       </div>
     </nav>
@@ -956,11 +988,11 @@
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-copy">
-          <h1>马哥数据采集工具</h1>
-          <p>面向公开数据整理场景，提供 7 款 Windows 与 macOS 桌面采集软件。</p>
+          <h1 data-zh="马哥数据采集工具" data-en="Mage Data Collection Tools">马哥数据采集工具</h1>
+          <p data-zh="面向公开数据整理场景，提供 7 款 Windows 与 macOS 桌面采集软件。" data-en="7 Windows and macOS desktop tools for organizing publicly available data.">面向公开数据整理场景，提供 7 款 Windows 与 macOS 桌面采集软件。</p>
           <div class="actions">
-            <a class="button button-primary" href="#china">浏览全部工具</a>
-            <a class="button" href="https://github.com/mashukui" target="_blank" rel="noopener noreferrer">查看 GitHub</a>
+            <a class="button button-primary" href="#china" data-zh="浏览全部工具" data-en="Browse all tools">浏览全部工具</a>
+            <a class="button" href="https://github.com/mashukui" target="_blank" rel="noopener noreferrer" data-zh="查看 GitHub" data-en="View GitHub">查看 GitHub</a>
           </div>
         </div>
 
@@ -980,8 +1012,8 @@
 
     <section id="china" class="section">
       <div class="section-head">
-        <h2>国内平台采集工具</h2>
-        <p>覆盖短视频、内容社区、微博和品牌投放场景。点击产品页查看功能、截图、价格与使用说明。</p>
+        <h2 data-zh="国内平台采集工具" data-en="China Platform Tools">国内平台采集工具</h2>
+        <p data-zh="覆盖短视频、内容社区、微博和品牌投放场景。点击产品页查看功能、截图、价格与使用说明。" data-en="Covers short video, content communities, Weibo and brand marketing. Visit each product page for features, screenshots, pricing and usage notes.">覆盖短视频、内容社区、微博和品牌投放场景。点击产品页查看功能、截图、价格与使用说明。</p>
       </div>
 
       <div class="product-grid">
@@ -990,12 +1022,12 @@
             <img src="images/douyin.jpg" width="1440" height="1191" alt="抖音采集软件运行界面" loading="lazy">
           </div>
           <div class="product-body">
-            <div class="product-meta">短视频平台</div>
-            <h3>抖音采集软件</h3>
-            <p>采集关键词作品、评论和达人主页作品，支持视频下载、链接转换与 CSV 导出。</p>
+            <div class="product-meta" data-zh="短视频平台" data-en="Short Video">短视频平台</div>
+            <h3 data-zh="抖音采集软件" data-en="Douyin Collection Tool">抖音采集软件</h3>
+            <p data-zh="采集关键词作品、评论和达人主页作品，支持视频下载、链接转换与 CSV 导出。" data-en="Collect keyword posts, comments and creator profiles, with video download, link conversion and CSV export.">采集关键词作品、评论和达人主页作品，支持视频下载、链接转换与 CSV 导出。</p>
             <div class="product-links">
-              <a href="/douyin_one_spider/">查看产品 →</a>
-              <a href="https://github.com/mashukui/douyin_one_spider/releases/" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/douyin_one_spider/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/douyin_one_spider/releases/" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1005,12 +1037,12 @@
             <img src="images/kuaishou.jpg" width="1440" height="1177" alt="快手采集软件运行界面" loading="lazy">
           </div>
           <div class="product-body">
-            <div class="product-meta">短视频平台</div>
-            <h3>快手采集软件</h3>
-            <p>采集关键词作品、评论、作品详情和主页作品，支持视频下载与 CSV 导出。</p>
+            <div class="product-meta" data-zh="短视频平台" data-en="Short Video">短视频平台</div>
+            <h3 data-zh="快手采集软件" data-en="Kuaishou Collection Tool">快手采集软件</h3>
+            <p data-zh="采集关键词作品、评论、作品详情和主页作品，支持视频下载与 CSV 导出。" data-en="Collect keyword posts, comments, post details and creator profiles, with video download and CSV export.">采集关键词作品、评论、作品详情和主页作品，支持视频下载与 CSV 导出。</p>
             <div class="product-links">
-              <a href="/kuaishou_one_spider/">查看产品 →</a>
-              <a href="https://github.com/mashukui/kuaishou_one_spider/releases/" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/kuaishou_one_spider/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/kuaishou_one_spider/releases/" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1020,12 +1052,12 @@
             <img src="images/xhs.jpg" width="1440" height="1191" alt="小红书采集软件运行界面" loading="lazy">
           </div>
           <div class="product-body">
-            <div class="product-meta">内容社区</div>
-            <h3>小红书采集软件</h3>
-            <p>采集搜索笔记、评论和博主主页笔记，支持图片下载、链接转换与 CSV 导出。</p>
+            <div class="product-meta" data-zh="内容社区" data-en="Content Community">内容社区</div>
+            <h3 data-zh="小红书采集软件" data-en="Xiaohongshu Collection Tool">小红书采集软件</h3>
+            <p data-zh="采集搜索笔记、评论和博主主页笔记，支持图片下载、链接转换与 CSV 导出。" data-en="Collect search notes, comments and creator profiles, with image download, link conversion and CSV export.">采集搜索笔记、评论和博主主页笔记，支持图片下载、链接转换与 CSV 导出。</p>
             <div class="product-links">
-              <a href="/xhs_one_spider/">查看产品 →</a>
-              <a href="https://github.com/mashukui/xhs_one_spider/releases/" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/xhs_one_spider/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/xhs_one_spider/releases/" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1035,12 +1067,12 @@
             <img src="images/weibo.png" width="1800" height="1456" alt="微博采集软件运行界面" loading="lazy">
           </div>
           <div class="product-body">
-            <div class="product-meta">社交媒体</div>
-            <h3>微博采集软件</h3>
-            <p>采集关键词微博、主页微博、评论和用户信息，结果可导出为 CSV 文件。</p>
+            <div class="product-meta" data-zh="社交媒体" data-en="Social Media">社交媒体</div>
+            <h3 data-zh="微博采集软件" data-en="Weibo Collection Tool">微博采集软件</h3>
+            <p data-zh="采集关键词微博、主页微博、评论和用户信息，结果可导出为 CSV 文件。" data-en="Collect keyword posts, profiles, comments and user info, exported as CSV.">采集关键词微博、主页微博、评论和用户信息，结果可导出为 CSV 文件。</p>
             <div class="product-links">
-              <a href="/weibo_one_spider/">查看产品 →</a>
-              <a href="https://github.com/mashukui/weibo_one_spider/releases/" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/weibo_one_spider/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/weibo_one_spider/releases/" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1050,12 +1082,12 @@
             <img src="images/pgy.png" width="1644" height="1340" alt="蒲公英采集软件运行界面" loading="lazy">
           </div>
           <div class="product-body">
-            <div class="product-meta">品牌投放</div>
-            <h3>蒲公英采集软件</h3>
-            <p>整理达人信息、合作报价、粉丝画像和内容表现，适合达人筛选与建库。</p>
+            <div class="product-meta" data-zh="品牌投放" data-en="Brand Marketing">品牌投放</div>
+            <h3 data-zh="蒲公英采集软件" data-en="Pgy Collection Tool">蒲公英采集软件</h3>
+            <p data-zh="整理达人信息、合作报价、粉丝画像和内容表现，适合达人筛选与建库。" data-en="Organize creator info, pricing, follower profiles and content performance — ideal for screening and building a database.">整理达人信息、合作报价、粉丝画像和内容表现，适合达人筛选与建库。</p>
             <div class="product-links">
-              <a href="/pgy_spider/">查看产品 →</a>
-              <a href="https://github.com/mashukui/pgy_spider/releases/" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/pgy_spider/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/pgy_spider/releases/" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1064,8 +1096,8 @@
 
     <section id="global" class="section">
       <div class="section-head">
-        <h2>海外平台采集工具</h2>
-        <p>围绕 YouTube 评论整理和创作者筛选，提供批量输入、结构化导出与运行日志。</p>
+        <h2 data-zh="海外平台采集工具" data-en="Global Platform Tools">海外平台采集工具</h2>
+        <p data-zh="围绕 YouTube 评论整理和创作者筛选，提供批量输入、结构化导出与运行日志。" data-en="For YouTube comment collection and creator discovery, with batch input, structured export and run logs.">围绕 YouTube 评论整理和创作者筛选，提供批量输入、结构化导出与运行日志。</p>
       </div>
 
       <div class="overseas-list">
@@ -1074,12 +1106,12 @@
             <img src="images/youtube-comments.png" width="1700" height="1356" alt="YouTube 评论采集工具运行界面" loading="lazy">
           </div>
           <div class="overseas-copy">
-            <div class="product-meta">评论整理</div>
-            <h3>YouTube 评论采集工具</h3>
-            <p>从表格读取多个视频链接，采集公开评论并导出 CSV、JSON 和运行日志。</p>
+            <div class="product-meta" data-zh="评论整理" data-en="Comment Collection">评论整理</div>
+            <h3 data-zh="YouTube 评论采集工具" data-en="YouTube Comment Tool">YouTube 评论采集工具</h3>
+            <p data-zh="从表格读取多个视频链接，采集公开评论并导出 CSV、JSON 和运行日志。" data-en="Reads multiple video links from a spreadsheet, collects public comments and exports CSV, JSON and run logs.">从表格读取多个视频链接，采集公开评论并导出 CSV、JSON 和运行日志。</p>
             <div class="product-links">
-              <a href="/ytb_cmt_spider/">查看产品 →</a>
-              <a href="https://github.com/mashukui/ytb_cmt_spider/releases/latest" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/ytb_cmt_spider/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/ytb_cmt_spider/releases/latest" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1089,12 +1121,12 @@
             <img src="images/youtube-creators.png" width="1402" height="932" alt="YouTube 红人采集工具运行界面" loading="lazy">
           </div>
           <div class="overseas-copy">
-            <div class="product-meta">创作者筛选</div>
-            <h3>YouTube 红人采集工具</h3>
-            <p>按关键词、国家地区和订阅量筛选创作者，导出频道信息、社媒链接和公开联系方式。</p>
+            <div class="product-meta" data-zh="创作者筛选" data-en="Creator Discovery">创作者筛选</div>
+            <h3 data-zh="YouTube 红人采集工具" data-en="YouTube Creator Tool">YouTube 红人采集工具</h3>
+            <p data-zh="按关键词、国家地区和订阅量筛选创作者，导出频道信息、社媒链接和公开联系方式。" data-en="Filter creators by keyword, country and subscriber count, exporting channel data, social links and public contacts.">按关键词、国家地区和订阅量筛选创作者，导出频道信息、社媒链接和公开联系方式。</p>
             <div class="product-links">
-              <a href="/youtube_user/">查看产品 →</a>
-              <a href="https://github.com/mashukui/youtube_user/releases/latest" target="_blank" rel="noopener noreferrer">下载版本</a>
+              <a href="/youtube_user/" data-zh="查看产品 →" data-en="View product →">查看产品 →</a>
+              <a href="https://github.com/mashukui/youtube_user/releases/latest" target="_blank" rel="noopener noreferrer" data-zh="下载版本" data-en="Download">下载版本</a>
             </div>
           </div>
         </article>
@@ -1103,52 +1135,52 @@
 
     <section id="guide" class="section">
       <div class="section-head">
-        <h2>如何选择和使用</h2>
-        <p>汇总首页负责产品导航，详细功能和使用限制以各产品页与当前版本说明为准。</p>
+        <h2 data-zh="如何选择和使用" data-en="How to Choose and Use">如何选择和使用</h2>
+        <p data-zh="汇总首页负责产品导航，详细功能和使用限制以各产品页与当前版本说明为准。" data-en="This homepage provides product navigation. For detailed features and limitations, refer to each product page and current release notes.">汇总首页负责产品导航，详细功能和使用限制以各产品页与当前版本说明为准。</p>
       </div>
       <div class="guide">
         <article class="guide-item">
           <span class="guide-number" aria-hidden="true">01</span>
-          <h3>按平台选择</h3>
-          <p>先确定目标平台和数据类型，再进入对应产品页查看支持的采集模块。</p>
+          <h3 data-zh="按平台选择" data-en="Pick a platform">按平台选择</h3>
+          <p data-zh="先确定目标平台和数据类型，再进入对应产品页查看支持的采集模块。" data-en="Choose your target platform and data type, then open the matching product page to review supported modules.">先确定目标平台和数据类型，再进入对应产品页查看支持的采集模块。</p>
         </article>
         <article class="guide-item">
           <span class="guide-number" aria-hidden="true">02</span>
-          <h3>查看产品说明</h3>
-          <p>产品页提供界面截图、使用流程、授权价格、常见问题和合规说明。</p>
+          <h3 data-zh="查看产品说明" data-en="Review product details">查看产品说明</h3>
+          <p data-zh="产品页提供界面截图、使用流程、授权价格、常见问题和合规说明。" data-en="Product pages include screenshots, workflow, pricing, FAQ and compliance notes.">产品页提供界面截图、使用流程、授权价格、常见问题和合规说明。</p>
         </article>
         <article class="guide-item">
           <span class="guide-number" aria-hidden="true">03</span>
-          <h3>下载当前版本</h3>
-          <p>客户端统一通过各项目 GitHub Releases 发布，Windows 与 macOS 支持以发布说明为准。</p>
+          <h3 data-zh="下载当前版本" data-en="Download the current version">下载当前版本</h3>
+          <p data-zh="客户端统一通过各项目 GitHub Releases 发布，Windows 与 macOS 支持以发布说明为准。" data-en="Clients are distributed via each project's GitHub Releases; Windows and macOS support follows the release notes.">客户端统一通过各项目 GitHub Releases 发布，Windows 与 macOS 支持以发布说明为准。</p>
         </article>
       </div>
     </section>
 
     <section class="compliance" aria-labelledby="compliance-title">
       <div class="compliance-inner">
-        <h2 id="compliance-title">合规使用说明</h2>
-        <p>这些工具仅用于合法合规的公开数据整理、学习研究和自有业务场景。使用者应遵守目标平台服务协议、隐私政策和所在地法律法规，不得用于高频破坏性请求、个人敏感信息交易或其他侵犯平台及用户合法权益的行为。</p>
+        <h2 id="compliance-title" data-zh="合规使用说明" data-en="Compliance Notice">合规使用说明</h2>
+        <p data-zh="这些工具仅用于合法合规的公开数据整理、学习研究和自有业务场景。使用者应遵守目标平台服务协议、隐私政策和所在地法律法规，不得用于高频破坏性请求、个人敏感信息交易或其他侵犯平台及用户合法权益的行为。" data-en="These tools are for legitimate, lawful use only: organizing public data, research and your own business scenarios. Users must comply with the target platform's terms of service, privacy policy and applicable laws. Do not use them for high-frequency disruptive requests, trading personal sensitive information, or other acts that infringe on platform or user rights.">这些工具仅用于合法合规的公开数据整理、学习研究和自有业务场景。使用者应遵守目标平台服务协议、隐私政策和所在地法律法规，不得用于高频破坏性请求、个人敏感信息交易或其他侵犯平台及用户合法权益的行为。</p>
       </div>
     </section>
 
     <section class="final-cta">
       <div class="final-cta-inner">
         <div>
-          <h2>从目标平台开始选择</h2>
-          <p>进入产品页查看功能边界、软件界面、当前价格和版本下载。</p>
+          <h2 data-zh="从目标平台开始选择" data-en="Start with your target platform">从目标平台开始选择</h2>
+          <p data-zh="进入产品页查看功能边界、软件界面、当前价格和版本下载。" data-en="Visit a product page for feature scope, interface, current pricing and downloads.">进入产品页查看功能边界、软件界面、当前价格和版本下载。</p>
         </div>
-        <a class="button" href="#china">查看产品目录</a>
+        <a class="button" href="#china" data-zh="查看产品目录" data-en="View product catalog">查看产品目录</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>© 2026 马哥python说</span>
+    <span data-zh="© 2026 马哥python说" data-en="© 2026 Mage Python">© 2026 马哥python说</span>
     <div class="footer-links">
-      <a href="https://github.com/mashukui" target="_blank" rel="noopener noreferrer">GitHub 主页</a>
-      <a href="https://mgnb.pro" target="_blank" rel="noopener noreferrer">产品与授权</a>
-      <a href="/sitemap.xml">站点地图</a>
+      <a href="https://github.com/mashukui" target="_blank" rel="noopener noreferrer" data-zh="GitHub 主页" data-en="GitHub Home">GitHub 主页</a>
+      <a href="https://mgnb.pro" target="_blank" rel="noopener noreferrer" data-zh="产品与授权" data-en="Products &amp; Licensing">产品与授权</a>
+      <a href="/sitemap.xml" data-zh="站点地图" data-en="Sitemap">站点地图</a>
     </div>
   </footer>
 
@@ -1182,6 +1214,33 @@
           trigger.blur();
         }
       });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var languageButtons = document.querySelectorAll('[data-language]');
+      var translatedElements = document.querySelectorAll('[data-zh][data-en]');
+
+      function setLanguage(language) {
+        var selected = language === 'en' ? 'en' : 'zh-CN';
+        document.documentElement.lang = selected;
+        translatedElements.forEach(function (element) {
+          element.textContent = selected === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-zh');
+        });
+        languageButtons.forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.getAttribute('data-language') === selected));
+        });
+        try { localStorage.setItem('mashukui-home-language', selected); } catch (error) {}
+      }
+
+      languageButtons.forEach(function (button) {
+        button.addEventListener('click', function () { setLanguage(button.getAttribute('data-language')); });
+      });
+
+      var savedLanguage = 'zh-CN';
+      try { savedLanguage = localStorage.getItem('mashukui-home-language') || 'zh-CN'; } catch (error) {}
+      setLanguage(savedLanguage);
     })();
   </script>
 </body>
