@@ -5,8 +5,52 @@
 <meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="小红书评论分析：如何清洗、分类与归纳用户反馈"><meta property="og:description" content="介绍小红书评论数据的关联、去重、文本清洗、主题分类与人工抽样复核方法。">
 <title>小红书评论分析：如何清洗、分类与归纳用户反馈 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
-</style></head><body>
-<header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/">博客首页</a><a href="/">产品目录</a></div></nav></header>
-<main class="article"><div class="eyebrow">小红书 · 评论分析</div><h1>小红书评论分析：如何清洗、分类与归纳用户反馈</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍小红书评论数据的关联、去重、文本清洗、主题分类与人工抽样复核方法。</p><h2>一、评论必须保留笔记上下文</h2><p>评论离开原笔记后容易被误读。建议保留笔记链接或唯一标识、笔记主题、评论文本、评论时间和采集时间。笔记表与评论表分开存储，再通过关联键连接。</p><h2>二、建立清洗规则</h2><ul><li>去除完全重复的记录，同时保留原始数据副本。</li><li>统一空白字符和明显格式异常，不随意改写原意。</li><li>将表情、链接或特殊符号按研究需要保留或单独标记。</li><li>区分缺失值与真实的空文本，不要一概填成相同内容。</li></ul><h2>三、主题分类从小样本开始</h2><p>先人工阅读一批评论，归纳产品体验、价格、使用方法、售后、情绪表达等初始主题。制定每类的定义和正反例，再对更大样本进行标注。允许一条评论对应多个主题，也允许“其他/无法判断”。</p><h2>四、做抽样复核</h2><p>抽查不同主题、不同时间和不同笔记来源的评论，检查分类是否一致。对讽刺、反问、上下文依赖和极短评论要格外谨慎，不能仅靠关键词判断情绪。</p><div class="note">评论文本可能包含个人信息。公开展示时应做必要脱敏，避免把个别用户言论包装成整体结论。</div><h2>五、输出分析结论</h2><p>报告中说明样本来源、时间范围、筛选条件和分类方法。用典型主题和适量原文片段解释发现，同时说明样本偏差与结论局限。</p>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/xhs_one_spider/">查看相关产品 →</a></div><a class="back" href="/blog/">← 返回技术博客</a></main>
-<footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer></body></html>
+.language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style></head><body>
+<header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
+<main class="article"><div class="lang-zh"><div class="eyebrow">小红书 · 评论分析</div><h1>小红书评论分析：如何清洗、分类与归纳用户反馈</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍小红书评论数据的关联、去重、文本清洗、主题分类与人工抽样复核方法。</p><h2>一、评论必须保留笔记上下文</h2><p>评论离开原笔记后容易被误读。建议保留笔记链接或唯一标识、笔记主题、评论文本、评论时间和采集时间。笔记表与评论表分开存储，再通过关联键连接。</p><h2>二、建立清洗规则</h2><ul><li>去除完全重复的记录，同时保留原始数据副本。</li><li>统一空白字符和明显格式异常，不随意改写原意。</li><li>将表情、链接或特殊符号按研究需要保留或单独标记。</li><li>区分缺失值与真实的空文本，不要一概填成相同内容。</li></ul><h2>三、主题分类从小样本开始</h2><p>先人工阅读一批评论，归纳产品体验、价格、使用方法、售后、情绪表达等初始主题。制定每类的定义和正反例，再对更大样本进行标注。允许一条评论对应多个主题，也允许“其他/无法判断”。</p><h2>四、做抽样复核</h2><p>抽查不同主题、不同时间和不同笔记来源的评论，检查分类是否一致。对讽刺、反问、上下文依赖和极短评论要格外谨慎，不能仅靠关键词判断情绪。</p><div class="note">评论文本可能包含个人信息。公开展示时应做必要脱敏，避免把个别用户言论包装成整体结论。</div><h2>五、输出分析结论</h2><p>报告中说明样本来源、时间范围、筛选条件和分类方法。用典型主题和适量原文片段解释发现，同时说明样本偏差与结论局限。</p>
+<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/xhs_one_spider/">查看相关产品 →</a></div><a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en">
+<div class="eyebrow">Xiaohongshu · Comment Analysis</div><h1>Xiaohongshu Comment Analysis: Cleaning and Categorizing User Feedback</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · Mage Data Tools</div><p class="lead">A practical approach to linking comments to posts, removing duplicates, cleaning text, categorizing themes, and manually reviewing samples.</p>
+<h2>1. Keep the Context of Each Post</h2><p>Comments can be misinterpreted when separated from their original posts. Keep the post URL or identifier, post topic, comment text, comment timestamp, and collection timestamp. Store posts and comments separately, then connect them with a key.</p>
+<h2>2. Define Cleaning Rules</h2><ul><li>Remove exact duplicates while retaining a raw-data copy.</li><li>Normalize whitespace and obvious formatting issues without changing the original meaning.</li><li>Keep or separately flag emoji, links, and special symbols according to the research purpose.</li><li>Distinguish missing values from genuinely empty text instead of replacing all cases with the same value.</li></ul>
+<h2>3. Start Topic Classification with a Small Sample</h2><p>Read an initial sample manually and identify themes such as product experience, price, usage, after-sales service, and emotional reactions. Define each category with examples before labeling a larger sample. A comment may belong to multiple themes, and an other or unclear category should be allowed.</p>
+<h2>4. Review Samples</h2><p>Check comments from different themes, dates, and post sources to assess consistency. Be especially careful with sarcasm, rhetorical questions, context-dependent comments, and very short text. Sentiment should not be determined by keywords alone.</p>
+<div class="note">Comments may contain personal information. Redact it when publishing results, and do not present isolated user statements as conclusions about an entire population.</div>
+<h2>5. Report the Findings</h2><p>Describe the sample source, time range, selection criteria, and classification method. Explain findings with representative themes and a limited number of excerpts, while noting sampling bias and limitations.</p>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main>
+<footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+(function(){
+  var buttons=document.querySelectorAll('[data-language]');
+  var zh=document.querySelector('.lang-zh');
+  var en=document.querySelector('.lang-en');
+  var titleZh=document.querySelector('.lang-zh h1');
+  var titleEn=document.querySelector('.lang-en h1');
+  var desc=document.querySelector('meta[name="description"]');
+  var ogTitle=document.querySelector('meta[property="og:title"]');
+  var ogDesc=document.querySelector('meta[property="og:description"]');
+  var navLinks=document.querySelectorAll('.links a[data-zh]');
+  var originalTitle=titleZh?titleZh.textContent+' - 马哥数据采集':document.title;
+  var originalDesc=desc?desc.getAttribute('content'):'';
+  var originalOgDesc=ogDesc?ogDesc.getAttribute('content'):originalDesc;
+  function setLanguage(value){
+    var lang=value==='en'?'en':'zh-CN';
+    document.documentElement.lang=lang;
+    buttons.forEach(function(button){button.setAttribute('aria-pressed',String(button.getAttribute('data-language')===lang));});
+    navLinks.forEach(function(link){link.textContent=lang==='en'?link.getAttribute('data-en'):link.getAttribute('data-zh');});
+    if(lang==='en'){
+      document.title=(titleEn?titleEn.textContent:'Article')+' - Mage Data Tools';
+      if(desc)desc.setAttribute('content',titleEn?titleEn.textContent+'. Practical guidance from Mage Data Tools.':'');
+      if(ogTitle)ogTitle.setAttribute('content',titleEn?titleEn.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',desc?desc.getAttribute('content'):'');
+    }else{
+      document.title=originalTitle;
+      if(desc)desc.setAttribute('content',originalDesc);
+      if(ogTitle)ogTitle.setAttribute('content',titleZh?titleZh.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',originalOgDesc);
+    }
+    try{localStorage.setItem('mashukui-home-language',lang);}catch(error){}
+  }
+  buttons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.getAttribute('data-language'));});});
+  var saved='zh-CN';try{saved=localStorage.getItem('mashukui-home-language')||'zh-CN';}catch(error){}
+  setLanguage(saved);
+})();
+</script></body></html>
