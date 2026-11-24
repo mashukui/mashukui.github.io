@@ -58,6 +58,12 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
 <main class="article"><div class="lang-zh"><div class="eyebrow">抖音 · 用户研究</div><h1>抖音用户数据整理：账号画像字段与核验方法</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">从公开账号信息、内容垂类、更新活跃度到人工核验，说明如何构建审慎、可复核的创作者候选表。</p><h2>一、账号研究先明确用途</h2><p>账号候选表常用于内容研究、创作者筛选或竞品观察。先明确目标垂类、地区语言、内容风格和合作需求，不要把所有可见账号都纳入名单。</p><h2>二、建议记录的字段</h2><ul><li>账号主页链接或公开账号标识：便于回访核验。</li><li>账号名称与公开简介：记录当时页面展示内容。</li><li>内容垂类、常见主题和代表性公开视频。</li><li>公开粉丝数等指标及其采集日期。</li><li>更新频率、近期内容匹配度和人工备注。</li></ul><h2>三、不要只按粉丝量排序</h2><p>粉丝规模不等于内容影响力。应结合近期作品、互动质量、主题一致性和目标受众判断。可抽样检查最近若干条公开作品，判断账号是否持续活跃、是否偏离目标领域。</p><h2>四、设计核验状态</h2><p>建议增加“待核验、已核验、信息不足、不匹配、待复查”等状态，并记录核验日期。账号名称和简介可能变化，历史数据需要带上时间标签。</p><div class="note">仅整理公开且必要的信息。避免收集与研究目的无关的个人敏感信息，不要推断或标注个人的敏感属性。</div><h2>五、输出可执行名单</h2><p>最终表格应能回答：为什么这个账号入选、证据是什么、何时核验、下一步做什么。比单纯堆积账号数量更有用。</p>
@@ -69,7 +75,7 @@
 <h2>4. Define Verification Statuses</h2><p>Useful statuses include pending verification, verified, insufficient information, not a fit, and recheck required. Record the verification date. Account names and bios can change, so historical data should always carry a timestamp.</p>
 <div class="note">Collect only public information that is necessary for the stated purpose. Avoid unrelated sensitive personal information and do not infer or label sensitive attributes.</div>
 <h2>5. Produce an Actionable Shortlist</h2><p>The final sheet should explain why each account was selected, what evidence supports the choice, when it was checked, and what should happen next. This is more useful than simply accumulating account counts.</p>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/douyin_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/douyin_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
 <footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
@@ -115,4 +121,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

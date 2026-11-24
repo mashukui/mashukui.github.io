@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="从确定研究目标、准备视频链接，到采集结果检查、字段整理与表格分析，梳理一套可复用的抖音评论数据工作流程。"><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://mashukui.github.io/blog/posts/douyin-comments.html">
-<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="如何整理抖音视频评论并导出 Excel？"><meta property="og:description" content="从确定研究目标、准备视频链接，到采集结果检查、字段整理与表格分析，梳理一套可复用的抖音评论数据工作流程。">
-<title>如何整理抖音视频评论并导出 Excel？ - 马哥数据采集</title><style>
+<meta name="description" content="从确定视频范围、采集评论、字段核对到清洗分析，附字段表、常见报错与合规提示，适合舆情、选题和线索整理。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/douyin-comments">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="抖音评论数据怎么采集和整理？从视频链接到 Excel 的完整流程"><meta property="og:description" content="从确定视频范围、采集评论、字段核对到清洗分析，附字段表、常见报错与合规提示，适合舆情、选题和线索整理。">
+<title>抖音评论数据怎么采集和整理？从视频链接到 Excel 的完整流程 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
 .language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
 {
@@ -11,10 +11,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "如何整理抖音视频评论并导出 Excel？",
-      "description": "从确定研究目标、准备视频链接，到采集结果检查、字段整理与表格分析，梳理一套可复用的抖音评论数据工作流程。",
-      "datePublished": "2026-11-22",
-      "dateModified": "2026-11-22",
+      "headline": "抖音评论数据怎么采集和整理？从视频链接到 Excel 的完整流程",
+      "description": "从确定视频范围、采集评论、字段核对到清洗分析，附字段表、常见报错与合规提示，适合舆情、选题和线索整理。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
       "author": {
         "@type": "Person",
         "name": "马哥python说"
@@ -26,9 +26,9 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mashukui.github.io/blog/posts/douyin-comments.html"
+        "@id": "https://mashukui.github.io/blog/posts/douyin-comments"
       },
-      "url": "https://mashukui.github.io/blog/posts/douyin-comments.html",
+      "url": "https://mashukui.github.io/blog/posts/douyin-comments",
       "inLanguage": "zh-CN"
     },
     {
@@ -49,8 +49,45 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "如何整理抖音视频评论并导出 Excel？",
-          "item": "https://mashukui.github.io/blog/posts/douyin-comments.html"
+          "name": "抖音评论数据怎么采集和整理？从视频链接到 Excel 的完整流程",
+          "item": "https://mashukui.github.io/blog/posts/douyin-comments"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "需要安装 Python 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要，客户端已打包运行环境。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能采多少条评论？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "受视频可见范围、账号状态和平台规则影响，没有固定上限。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "采集中断会丢数据吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "按页保存 CSV，已完成页通常保留。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持 Mac 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持 Windows 和 macOS。"
+          }
         }
       ]
     }
@@ -58,25 +95,48 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
-<main class="article"><div class="lang-zh"><div class="eyebrow">抖音 · 实战教程</div><h1>如何整理抖音视频评论并导出 Excel？</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">从确定研究目标、准备视频链接，到采集结果检查、字段整理与表格分析，梳理一套可复用的抖音评论数据工作流程。</p>
-<h2>一、先明确研究目标</h2><p>开始整理评论前，先明确用途：了解用户对某个产品的反馈、归纳视频讨论主题，还是追踪公开话题的讨论变化。目标不同，需要关注的字段和筛选方式也不同。</p>
-<h2>二、准备视频范围与采集条件</h2><ol><li>优先整理与研究主题直接相关的视频链接，并记录来源与采集日期。</li><li>检查视频是否仍然公开可访问，以及评论是否对当前账号可见。</li><li>控制采集范围和频率，遵守平台规则、适用法律及个人信息保护要求。</li></ol>
-<h2>三、检查导出数据</h2><p>将数据导出为 CSV 或 Excel 后，先检查字段完整性、重复记录，以及时间、文本和互动字段是否符合预期。不要仅凭采集条数判断数据质量。</p><h3>建议关注的字段</h3><ul><li>视频链接或视频标识：追溯评论来源。</li><li>评论文本：用于主题归纳和人工复核。</li><li>评论时间：观察讨论变化。</li><li>公开互动数据：辅助判断讨论热度，注意指标定义。</li><li>采集时间：记录数据快照时间，便于比较。</li></ul>
-<h2>四、在 Excel 中做基础整理</h2><ol><li>删除完全重复的记录，但保留原始数据备份。</li><li>按视频、时间或关键词筛选评论。</li><li>将明显无关、空白或异常内容标记出来，并保留清洗规则。</li><li>抽样回看原视频，核对数据与上下文。</li></ol>
-<div class="note">评论内容可能包含个人信息。分析和分享时应遵循最小必要原则，避免公开传播可识别个人身份的信息。</div>
-<h2>五、形成可复用的流程</h2><p>每次任务都保留关键词、视频清单、采集日期、导出文件和清洗规则。后续更新数据时，才能比较不同时间段的结果。</p>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/douyin_one_spider/">查看相关产品 →</a></div>
-<a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en">
-<div class="eyebrow">Douyin · Practical Guide</div><h2 class="post-title-en">How to Organize Douyin Video Comments and Export Them to Excel</h2><div class="date"><time datetime="2026-11-22">2026-11-22</time> · Mage Data Tools</div><p class="lead">A reusable workflow for defining research goals, preparing video URLs, checking collected data, organizing fields, and analyzing results in spreadsheets.</p>
-<h2>1. Define Your Research Goal</h2><p>Before organizing comments, clarify what you want to learn: customer feedback about a product, discussion themes around a video, or changes in public conversations over time. Different goals require different fields and filtering rules.</p>
-<h2>2. Prepare Video Scope and Collection Conditions</h2><ol><li>List videos directly related to your topic and record their sources and collection dates.</li><li>Check whether each video is still publicly accessible and whether its comments are visible to your account.</li><li>Keep collection scope and frequency reasonable, following platform rules, applicable laws, and privacy requirements.</li></ol>
-<h2>3. Validate the Exported Data</h2><p>After exporting to CSV or Excel, check field completeness, duplicate records, and whether timestamps, text, and engagement fields look as expected. The number of collected rows alone is not a measure of data quality.</p><h3>Useful Fields to Track</h3><ul><li>Video URL or ID: trace each comment to its source.</li><li>Comment text: support topic analysis and manual review.</li><li>Comment timestamp: observe discussion changes.</li><li>Public engagement metrics: provide context, with metric definitions noted.</li><li>Collection timestamp: identify the data snapshot for comparison.</li></ul>
-<h2>4. Organize the Data in Excel</h2><ol><li>Remove exact duplicates while keeping an untouched copy of the raw export.</li><li>Filter comments by video, date, or keyword.</li><li>Flag irrelevant, blank, or abnormal records and document the cleaning rules.</li><li>Review a sample against the original videos to verify context.</li></ol>
-<div class="note">Comments may contain personal information. Apply data minimization and avoid publicly sharing information that could identify individuals.</div>
-<h2>5. Make the Workflow Reusable</h2><p>Keep the keywords, video list, collection dates, exported files, and cleaning rules for every project. This makes it possible to compare results when the dataset is updated.</p>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/douyin_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<main class="article"><div class="lang-zh"><div class="eyebrow">抖音 · 实战教程</div><h1>抖音评论数据怎么采集和整理？从视频链接到 Excel 的完整流程</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从确定视频范围、采集评论、字段核对到清洗分析，附字段表、常见报错与合规提示，适合舆情、选题和线索整理。</p>
+<h2>一、评论数据能用来做什么</h2><p>抖音评论至少有三类用途：选题验证（观众在讨论什么）、舆情观察（某个话题或品牌的反馈）、线索整理（从评论区找潜在客户）。用途不同，视频范围和字段也不同：做选题可以只看头部视频，做舆情要覆盖关键词和时间段，做线索则要保留评论者信息和评论时间。</p>
+<h2>二、准备视频清单</h2><ol><li>按关键词、博主主页或单条作品链接收集视频，记录来源和采集日期。</li><li>确认视频公开可访问、评论区开放；删除或仅粉丝可见的视频会直接导致结果为空。</li><li>控制单次采集数量，分批执行，避免一次拉太多导致中断。</li></ol>
+<h2>三、采集步骤</h2><figure><img src="/blog/images/douyin-gui.jpg" width="1200" height="992" loading="lazy" alt="抖音评论采集界面"><figcaption>图 1：在软件里选择评论采集，填写作品链接或关键词。</figcaption></figure><ol><li>打开软件，选择「评论采集」模块。</li><li>粘贴作品链接，或输入关键词先搜索作品。</li><li>设置采集页数和保存目录，点击开始执行。</li><li>运行结束后，在软件目录查看 CSV 文件和 logs 日志。</li></ol><p>采集过程中每页会写入一次 CSV；中途中断时，已完成页的数据通常还在。</p>
+<h2>四、导出字段</h2><table><thead><tr><th>字段</th><th>含义</th><th>用途</th></tr></thead><tbody><tr><td>作品链接</td><td>评论所属视频地址</td><td>回溯来源、按视频分组</td></tr><tr><td>评论者昵称 / id</td><td>评论用户标识</td><td>去重、用户画像</td></tr><tr><td>评论内容</td><td>评论文本</td><td>主题分类、情绪标注</td></tr><tr><td>评论时间</td><td>评论发布时间</td><td>趋势分析</td></tr><tr><td>点赞数</td><td>评论获得的点赞</td><td>热度参考</td></tr><tr><td>评论级别</td><td>一级评论或二级回复</td><td>区分主评论与回复</td></tr><tr><td>IP 属地</td><td>评论者地域（如导出含该字段）</td><td>地域分布</td></tr></tbody></table><p>字段齐全比条数更重要。导出后先抽查 10 条，确认评论和作品能对应上。</p>
+<h2>五、导出后的检查与清洗</h2><figure><img src="/blog/images/douyin-result.jpg" width="1200" height="562" loading="lazy" alt="抖音评论导出结果"><figcaption>图 2：导出后的评论表，可以按视频、时间和关键词筛选。</figcaption></figure><ol><li>删除完全重复的评论，但保留原始文件备份。</li><li>检查空值、乱码和时间格式，统一成可排序的日期。</li><li>按作品、时间或关键词筛选，标记明显无关的内容。</li><li>抽样回到原视频核对上下文，确认没有错位。</li></ol>
+<h2>六、常见报错与排查</h2><h3>评论为空</h3><p>先确认视频是否还在、评论区是否关闭；再检查链接格式是否为完整作品链接。若视频仅粉丝可见，采集结果也会为空。</p><h3>数量比页面显示少</h3><p>平台通常只返回部分可见评论，翻页深度、账号状态和评论排序都会影响结果。建议以导出文件为准，不要用页面数字倒推。</p><h3>视频下载失败</h3><p>检查链接是否失效、网络是否稳定、输出目录是否有写权限；批量任务中单条失败通常不影响后续。</p><h3>登录失效</h3><p>重新登录软件，或按当前版本的说明重新读取浏览器登录态；不要频繁切换账号。</p>
+<h2>七、合规提示</h2><p>只处理公开可见的数据，控制采集频率，遵守平台规则和适用法律。评论可能包含个人信息，分析和分享时遵循最小必要原则，不要公开传播可识别个人身份的内容。</p>
+<h2>八、常见问题</h2><h3>需要安装 Python 吗？</h3><p>不需要。客户端已经打包好运行环境，下载对应系统版本即可。</p><h3>能采多少条评论？</h3><p>受视频可见范围、账号状态和平台规则影响，没有固定上限；建议分批采集并保留日志。</p><h3>采集中断会丢数据吗？</h3><p>软件按页保存 CSV，已完成页通常保留。中断后先备份文件，再补采缺失部分。</p><h3>支持 Mac 吗？</h3><p>支持 Windows 和 macOS，下载对应版本即可。</p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/douyin_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=douyin-comments" data-track="douyin">查看抖音聚合采集 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「抖音」获取使用说明。</p></div>
+<h2>九、三个常见误区</h2><p>只看评论条数、不看字段是否齐全；用一条高赞评论代表整体；忽略采集日期，把不同时间的数据混在一起比较。这三个问题都会让结论失真，建议在清洗阶段就把口径写清楚。</p><h2>十、把结果做成可复用的周报</h2><p>固定三块：本周采集范围（关键词、链接、时间）、关键发现（3 条，附原文示例）、下周计划（要补的数据和要验证的假设）。把检索式、导出文件和清洗规则放在同一目录，下一期直接复用。</p><p>团队协作时，在 CSV 里增加「采集人」「采集时间」「数据版本」三列，出现争议时能追溯到具体批次；报告里尽量用比例和趋势，不要用单条评论下结论。</p><h2>十一、样本够不够，怎么判断</h2><p>不看总数，看是否覆盖主要关键词、时间阶段和视频类型；如果某一类视频明显缺失，先补样本再分析。样本不足时，宁可缩小结论范围，也不要用少量数据外推整体。样本量没有统一标准，但结论越强，要求的样本就越多。</p><p>另外，保留一份「未采用样本」清单，记录被排除的原因（重复、无关、异常），复核时能解释为什么某条数据没进报告，也能检查排除规则是否过严。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/xhs-notes.html">小红书笔记数据怎么采集和整理？</a></li><li><a href="/blog/posts/weibo-keyword.html">微博舆情数据怎么整理？</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">抖音 · 实战教程</div><h2 class="post-title-en">抖音评论数据怎么采集和整理？从视频链接到 Excel 的完整流程</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从确定视频范围、采集评论、字段核对到清洗分析，附字段表、常见报错与合规提示，适合舆情、选题和线索整理。</p>
+<h2>1. What Comment Data Is For</h2><p>Douyin comments support at least three jobs: validating content ideas, observing public reaction to a topic or brand, and finding potential leads. Each job needs a different video scope and field set, so define the goal before collecting.</p>
+<h2>2. Prepare the Video List</h2><ol><li>Collect videos by keyword, creator profile, or individual video URL, and record the source and date.</li><li>Check that each video is public and its comment section is open; deleted or followers-only videos will return nothing.</li><li>Collect in batches to avoid long runs and interruptions.</li></ol>
+<h2>3. Collection Steps</h2><figure><img src="/blog/images/douyin-gui.jpg" width="1200" height="992" loading="lazy" alt="Douyin comment collection interface"><figcaption>Figure 1: choose the comment module and enter video URLs or keywords.</figcaption></figure><ol><li>Open the tool and choose the comment collection module.</li><li>Paste video URLs, or search by keyword first.</li><li>Set the page count and output folder, then start.</li><li>When it finishes, check the CSV file and the logs folder.</li></ol>
+<h2>4. Fields to Keep</h2><table><thead><tr><th>Field</th><th>Meaning</th><th>Use</th></tr></thead><tbody><tr><td>Video URL</td><td>Source video</td><td>Traceability, grouping</td></tr><tr><td>Commenter name / ID</td><td>User identifier</td><td>Deduplication, profiling</td></tr><tr><td>Comment text</td><td>The comment</td><td>Topics, sentiment</td></tr><tr><td>Comment time</td><td>Publish time</td><td>Trend analysis</td></tr><tr><td>Likes</td><td>Comment engagement</td><td>Heat reference</td></tr><tr><td>Comment level</td><td>Top-level or reply</td><td>Separate replies</td></tr><tr><td>IP location</td><td>Region, if exported</td><td>Regional distribution</td></tr></tbody></table><p>Complete fields matter more than row count. Spot-check ten records before analysis.</p>
+<h2>5. Check and Clean the Export</h2><figure><img src="/blog/images/douyin-result.jpg" width="1200" height="562" loading="lazy" alt="Douyin comment export"><figcaption>Figure 2: the exported comment table can be filtered by video, date, or keyword.</figcaption></figure><ol><li>Remove exact duplicates and keep a raw backup.</li><li>Check empty values, encoding issues, and date formats.</li><li>Filter by video, date, or keyword and flag irrelevant records.</li><li>Review a sample against the original videos.</li></ol>
+<h2>6. Common Errors</h2><h3>No comments returned</h3><p>Confirm the video still exists and the comment section is open; check that the URL is a complete video link.</p><h3>Fewer comments than the page shows</h3><p>Platforms expose only part of the comment set. Paging depth, account status, and sorting all affect results; trust the export rather than the page count.</p><h3>Video download fails</h3><p>Check the link, network, and write permission for the output folder. A single failure usually does not stop the batch.</p><h3>Login expires</h3><p>Log in again or refresh the browser session as described in the current version notes.</p>
+<h2>7. Compliance</h2><p>Only process publicly visible data, keep request rates reasonable, and follow platform rules and applicable laws. Comments may contain personal information, so apply data minimization and avoid publishing identifiable content.</p>
+<h2>8. FAQ</h2><h3>Do I need Python?</h3><p>No. The desktop client bundles its runtime.</p><h3>How many comments can I collect?</h3><p>It depends on visibility, account status, and platform rules; collect in batches and keep logs.</p><h3>Will I lose data if collection stops?</h3><p>CSV is written page by page, so completed pages usually remain. Back up the file and collect the missing part.</p><h3>Does it support macOS?</h3><p>Yes, both Windows and macOS builds are available.</p>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/douyin_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=douyin-comments" data-track="douyin">View the Douyin tool →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>9. Three Common Mistakes</h2><p>Counting rows without checking fields, letting one highly liked comment represent the whole audience, and mixing data from different dates. Document the rules during cleaning so the conclusions stay comparable.</p><h2>10. Turn It into a Reusable Weekly Report</h2><p>Keep three blocks: the collection scope (keywords, links, dates), three key findings with original examples, and next week's plan. Store the queries, exports, and cleaning rules together so the next run can reuse them.</p><p>For team work, add collector, collection date, and data version columns to the CSV so any number can be traced back to a batch.</p><h2>11. Is the Sample Enough?</h2><p>Do not judge by row count alone; check coverage across keywords, time periods, and video types. If one group is missing, collect more before analyzing. The stronger the conclusion, the larger the sample it needs.</p><p>Keep a list of excluded records with reasons (duplicate, irrelevant, abnormal) so you can explain later why a record was left out and whether the exclusion rule was too strict.</p><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/xhs-notes.html">How to collect and organize Xiaohongshu notes</a></li><li><a href="/blog/posts/weibo-keyword.html">How to organize Weibo public-opinion data</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
@@ -121,4 +181,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

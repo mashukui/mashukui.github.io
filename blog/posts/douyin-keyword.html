@@ -58,6 +58,12 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
 <main class="article"><div class="lang-zh"><div class="eyebrow">抖音 · 搜索策略</div><h1>抖音关键词采集怎么做？关键词分组与结果筛选</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍如何从业务问题拆解关键词、管理搜索批次、筛选视频结果并记录数据来源。</p><h2>一、把业务问题转成关键词</h2><p>从品牌词、产品词、场景词、问题词、竞品词和活动词六类开始。每组词对应一个研究意图，例如了解产品体验时，场景词和问题词通常比宽泛行业词更有针对性。</p><h2>二、建立关键词表</h2><p>建议字段包括关键词、词组类别、目标意图、添加日期、优先级、搜索批次和备注。为关键词设置统一命名规则，方便后续比较不同批次的结果。</p><h2>三、先小范围试搜</h2><p>每组先选少量代表词，观察返回内容是否相关、是否过于宽泛，以及是否存在同义词。根据结果调整词组，不要只追求搜索词数量。</p><h2>四、筛选结果并记录原因</h2><p>可以按内容相关性、发布时间、账号或互动区间筛选，但每个条件都应服务于研究问题。保留原始搜索词和筛选理由，避免结果表失去来源信息。</p><h2>五、避免重复与偏差</h2><p>多个关键词可能命中同一视频，建议使用稳定的视频链接或标识去重，同时保留该视频命中的全部关键词。不同关键词的结果量不能直接代表真实话题热度，因为排序和推荐机制会影响可见结果。</p><div class="note">搜索结果是平台在特定时间和条件下呈现的样本，不等同于全量内容。报告中应说明采集日期、关键词和筛选范围。</div>
@@ -69,7 +75,7 @@
 <h2>4. Filter Results and Record the Reason</h2><p>Filter by content relevance, publication date, creator, or engagement range when those criteria serve the research question. Keep the original search term and selection rationale so the result table retains its provenance.</p>
 <h2>5. Avoid Duplicates and Sampling Bias</h2><p>Multiple keywords may return the same video. Deduplicate by a stable video URL or identifier while retaining all keywords that matched it. Result counts for different keywords do not directly represent topic popularity because ranking and recommendation systems affect what is visible.</p>
 <div class="note">Search results are samples shown by the platform under specific conditions and at a specific time, not a complete census. Document collection dates, keywords, and filtering scope in your report.</div>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/douyin_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/douyin_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
 <footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
@@ -115,4 +121,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

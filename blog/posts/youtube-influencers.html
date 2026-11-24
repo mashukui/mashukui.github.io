@@ -58,6 +58,12 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
 <main class="article"><div class="lang-zh"><div class="eyebrow">YouTube · 海外营销</div><h1>如何通过 YouTube 关键词寻找海外创作者？</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">从关键词拆解、地区与频道筛选，到公开资料核验，介绍海外创作者初筛的实用流程。</p>
@@ -78,7 +84,7 @@
 <h2>5. Understand API and Data Boundaries</h2><p>When using official interfaces such as the YouTube Data API, understand quota limits, field availability, and API policies. Not every field is available for every channel, and business contact details may not be public. Do not bypass access restrictions or target non-public personal information.</p>
 <div class="note">A creator list is a research starting point, not a collaboration decision. Manually verify content, audience, region, and suitability before outreach, and follow local marketing and privacy requirements.</div>
 <h2>6. Keep the List Useful Over Time</h2><p>Add status fields such as pending review, verified, not a fit, and contacted. Update public information periodically. This is more useful than producing a one-time export.</p>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/youtube_user/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/youtube_user/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
@@ -123,4 +129,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

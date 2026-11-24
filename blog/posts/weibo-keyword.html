@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。"><meta name="robots" content="index,follow">
+<meta name="description" content="从关键词分组、时间范围设定，到博文与评论采集、字段核对和报告呈现，附字段表、常见报错与合规提示。"><meta name="robots" content="index,follow">
 <link rel="canonical" href="https://mashukui.github.io/blog/posts/weibo-keyword">
-<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="微博关键词数据怎么整理？从搜索结果到舆情表格"><meta property="og:description" content="从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。">
-<title>微博关键词数据怎么整理？从搜索结果到舆情表格 - 马哥数据采集</title><style>
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="微博舆情数据怎么整理？从关键词监测到分析表"><meta property="og:description" content="从关键词分组、时间范围设定，到博文与评论采集、字段核对和报告呈现，附字段表、常见报错与合规提示。">
+<title>微博舆情数据怎么整理？从关键词监测到分析表 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
 .language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
 {
@@ -11,8 +11,8 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "微博关键词数据怎么整理？从搜索结果到舆情表格",
-      "description": "从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。",
+      "headline": "微博舆情数据怎么整理？从关键词监测到分析表",
+      "description": "从关键词分组、时间范围设定，到博文与评论采集、字段核对和报告呈现，附字段表、常见报错与合规提示。",
       "datePublished": "2026-11-24",
       "dateModified": "2026-11-24",
       "author": {
@@ -49,8 +49,45 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "微博关键词数据怎么整理？从搜索结果到舆情表格",
+          "name": "微博舆情数据怎么整理？从关键词监测到分析表",
           "item": "https://mashukui.github.io/blog/posts/weibo-keyword"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "能按时间范围采集吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以，关键词搜索支持设置起止时间。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能采用户信息吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持按主页链接采集公开资料字段。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能直接导出 Excel 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "默认 CSV，可用 Excel 打开或导入。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "采集频率怎么控制？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议分批低频执行。"
+          }
         }
       ]
     }
@@ -58,25 +95,67 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
-<main class="article"><div class="lang-zh"><div class="eyebrow">微博 · 舆情分析</div><h1>微博关键词数据怎么整理？从搜索结果到舆情表格</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。</p>
-<h2>一、先明确监测目标</h2><p>先写清楚要回答的问题：品牌声量、事件走势，还是竞品对比。目标决定关键词、时间范围和需要采集的字段，避免一上来就大规模抓取。</p>
-<h2>二、设计关键词与时间范围</h2><ol><li>核心词加同义词、缩写和常见错写，减少漏采。</li><li>准备排除词，过滤明显无关的内容。</li><li>按事件阶段分时间段检索，并记录每次使用的检索式。</li></ol>
-<h2>三、采集哪些字段</h2><p>博文层面建议保留：博文链接、作者、发布时间、正文、话题标签、转发数、评论数、点赞数和 IP 属地；评论层面保留评论者、评论内容、评论时间、点赞数和评论级别。转发、评论、点赞的口径要提前确认，避免分析时混用。</p>
-<h2>四、导出后的检查</h2><ol><li>删除重复博文和重复评论，保留原始备份。</li><li>检查时间范围、空值和乱码。</li><li>抽样打开原博文，核对正文、互动数据和评论是否对应。</li><li>把明显营销号、无关话题单独标记，不要直接删除。</li></ol>
-<div class="note">舆情数据里可能包含个人信息和未经证实的说法。引用时保留原文链接，避免断章取义，也不要公开传播可识别个人身份的信息。</div>
-<h2>五、分析口径与呈现</h2><p>先看声量趋势和话题分布，再做主题分类和情绪标注；互动量受账号体量和时间影响，只能作为参考。报告中保留代表性样本和原文链接，方便复核。</p>
-<h2>六、合规与留存</h2><p>只处理公开数据，遵守平台规则和适用法律；保留检索式、时间范围、导出文件和清洗规则，方便复现和更新。</p>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/weibo_one_spider/">查看相关产品 →</a></div><a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en"><div class="eyebrow">Weibo · Public Opinion</div><h2 class="post-title-en">How to Organize Weibo Keyword Data into a Research Table</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">A practical workflow for keyword groups, time windows, post and comment collection, field checks, and analysis tables.</p>
-<h2>1. Define the Monitoring Goal</h2><p>Start with the question you need to answer: brand visibility, the arc of an event, or a competitor comparison. The goal determines keywords, time range, and fields, and prevents unnecessary large-scale collection.</p>
-<h2>2. Design Keywords and Time Windows</h2><ol><li>Combine core terms with synonyms, abbreviations, and common misspellings to reduce gaps.</li><li>Prepare exclusion terms to filter obviously irrelevant posts.</li><li>Search in stages across the event timeline, and record each query you use.</li></ol>
-<h2>3. Choose the Fields</h2><p>For posts, keep the URL, author, publish time, text, hashtags, reposts, comments, likes, and IP location. For comments, keep the commenter, comment text, comment time, likes, and comment level. Confirm how reposts, comments, and likes are counted before analysis so the metrics are not mixed.</p>
-<h2>4. Check the Export</h2><ol><li>Remove duplicate posts and comments, and keep a raw backup.</li><li>Check the time range, empty values, and encoding issues.</li><li>Open a sample of original posts to verify text, engagement, and comments.</li><li>Flag obvious marketing accounts and off-topic posts instead of deleting them.</li></ol>
-<div class="note">Public-opinion data may include personal information and unverified claims. Keep the original links when citing, avoid quoting out of context, and do not publicly share identifiable personal information.</div>
-<h2>5. Analysis and Presentation</h2><p>Start with volume trends and topic distribution, then add theme categories and sentiment labels. Engagement is affected by account size and timing, so treat it as a reference only. Keep representative samples and original links in the report for review.</p>
-<h2>6. Compliance and Record-Keeping</h2><p>Only process public data and follow platform rules and applicable laws. Keep the queries, time ranges, exported files, and cleaning rules so the work can be reproduced and updated.</p>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/weibo_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<main class="article"><div class="lang-zh"><div class="eyebrow">微博 · 舆情分析</div><h1>微博舆情数据怎么整理？从关键词监测到分析表</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从关键词分组、时间范围设定，到博文与评论采集、字段核对和报告呈现，附字段表、常见报错与合规提示。</p>
+<h2>一、先明确舆情监测目标</h2><p>微博数据可以回答三类问题：品牌或事件的声量变化、用户讨论的主题分布、竞品之间的表现差异。目标不同，关键词、时间范围和字段都不一样；先写清楚要回答的问题，再决定采多少。</p>
+<h2>二、设计关键词与时间范围</h2><ol><li>核心词加同义词、缩写、品牌别名和常见错写，减少漏采。</li><li>准备排除词，过滤明显无关的内容。</li><li>按事件阶段分时间段检索，并记录每次使用的检索式。</li></ol>
+<h2>三、采集步骤</h2><figure><img src="/blog/images/weibo-gui.jpg" width="1200" height="1058" loading="lazy" alt="微博用户信息采集界面"><figcaption>图 1：选择关键词、主页、评论或用户信息模块，填写检索条件。</figcaption></figure><ol><li>打开软件，选择关键词微博、主页微博、评论或用户信息模块。</li><li>输入关键词、博文链接或主页链接，设置时间范围和页数。</li><li>选择保存目录，开始执行。</li><li>结束后查看 CSV 和 logs 日志。</li></ol>
+<h2>四、采集哪些字段</h2><table><thead><tr><th>层级</th><th>字段</th><th>用途</th></tr></thead><tbody><tr><td>博文</td><td>博文链接、作者、发布时间、正文、话题标签</td><td>声量与主题分析</td></tr><tr><td>互动</td><td>转发数、评论数、点赞数</td><td>传播表现参考</td></tr><tr><td>地域</td><td>IP 属地（如导出含该字段）</td><td>地域分布</td></tr><tr><td>评论</td><td>评论者、评论内容、评论时间、点赞数、评论级别</td><td>反馈与情绪分析</td></tr><tr><td>用户</td><td>主页、认证、粉丝数、简介</td><td>账号画像与影响力判断</td></tr></tbody></table><p>转发、评论、点赞的口径要提前确认，跨平台对比时尤其不能混用。</p>
+<h2>五、导出后的检查</h2><figure><img src="/blog/images/weibo-result.jpg" width="1200" height="634" loading="lazy" alt="微博数据导出结果"><figcaption>图 2：导出后的博文表，可以按时间、关键词和互动数据筛选。</figcaption></figure><ol><li>删除重复博文和重复评论，保留原始备份。</li><li>检查时间范围、空值、乱码和字段错位。</li><li>抽样打开原博文，核对正文、互动数据和评论。</li><li>把明显营销号、无关话题单独标记，不要直接删除。</li></ol>
+<h2>六、常见报错与排查</h2><h3>结果重复或范围不对</h3><p>检查检索式和分页逻辑，确认时间范围；同一关键词分多次采集时，先去重再合并。</p><h3>评论为空</h3><p>评论区可能关闭、博文被删除或仅部分可见；先确认博文能正常打开。</p><h3>导出乱码</h3><p>用 UTF-8 打开 CSV；如果 Excel 直接双击乱码，改用「数据 → 从文本/CSV」导入。</p><h3>登录失效</h3><p>重新登录软件，按当前版本说明刷新登录态；避免频繁切换账号。</p>
+<h2>七、合规提示</h2><p>只处理公开可见的博文和评论，控制采集频率，遵守平台规则和适用法律。舆情数据可能包含个人信息和未经证实的说法，引用时保留原文链接，避免断章取义，也不要公开传播可识别个人身份的信息。</p>
+<h2>八、常见问题</h2><h3>能按时间范围采集吗？</h3><p>可以，在关键词搜索时设置起止时间，结果会按当前版本支持的范围返回。</p><h3>能采用户信息吗？</h3><p>支持按主页链接采集公开的用户资料字段。</p><h3>能直接导出 Excel 吗？</h3><p>默认导出 CSV，可用 Excel 打开或导入后再另存。</p><h3>采集频率怎么控制？</h3><p>建议分批、低频执行，既降低中断概率，也更符合平台规则。</p>
+<h2>延伸：从数据到舆情结论</h2><p>先看声量趋势和时间节点，再做主题分类和情绪标注，最后保留代表性博文和评论原文。互动量受账号体量和发布时间影响，只能作为参考；报告中给出样本和口径，比给一个绝对数字更可信。</p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/weibo_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=weibo-keyword" data-track="weibo">查看微博聚合采集 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「微博」获取使用说明。</p></div>
+<h2>九、三个常见误区</h2><p>只看声量不看样本；把转发当成支持；忽略营销号和水军。舆情结论要给出时间窗口、样本量和代表性原文，避免用单条博文下判断。</p><h2>十、把结果做成可复用的周报</h2><p>固定三块：监测范围和检索式、声量与主题变化、代表性样本和下一步动作。把检索式、导出文件和清洗规则留档，下一期才能对比。</p><p>危机事件按小时级更新，常规监测按天或周即可；频率要和事件阶段匹配，避免用高频采集制造“热度上升”的错觉。</p><h2>十一、样本够不够，怎么判断</h2><p>不看总数，看是否覆盖主要关键词、时间阶段和账号类型；如果只有大 V、没有普通用户，声量结论会偏。先补样本，再比较不同层级账号的表现。</p><p>保留一份「未采用样本」清单，记录被排除的原因（重复、营销号、无关），复核时能解释排除口径；同时保留原文链接，避免断章取义。</p><p>样本量没有统一标准，但结论越强，要求的样本就越多；危机事件尤其要写清时间窗口。</p><p>最后提醒：舆情结论要能回到原文，任何数字都应能找到对应的样本；没有样本支撑的「趋势」，不要写进报告，也不要口头汇报。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li><li><a href="/blog/posts/excel-automation.html">Excel 自动化：把周报做快一点</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">微博 · 舆情分析</div><h2 class="post-title-en">微博舆情数据怎么整理？从关键词监测到分析表</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从关键词分组、时间范围设定，到博文与评论采集、字段核对和报告呈现，附字段表、常见报错与合规提示。</p>
+<h2>1. Define the Monitoring Goal</h2><p>Weibo data can answer three questions: how volume changes for a brand or event, which themes users discuss, and how competitors compare. Each goal needs different keywords, time windows, and fields.</p>
+<h2>2. Design Keywords and Time Windows</h2><ol><li>Combine core terms with synonyms, abbreviations, brand aliases, and common misspellings.</li><li>Prepare exclusion terms to filter irrelevant posts.</li><li>Search in stages across the event timeline and record each query.</li></ol>
+<h2>3. Collection Steps</h2><figure><img src="/blog/images/weibo-gui.jpg" width="1200" height="1058" loading="lazy" alt="Weibo data collection interface"><figcaption>Figure 1: choose keyword, profile, comment, or user-info collection and enter the query.</figcaption></figure><ol><li>Open the tool and choose a module.</li><li>Enter a keyword, post URL, or profile URL, and set the date range and pages.</li><li>Choose the output folder and start.</li><li>Check the CSV and logs when it finishes.</li></ol>
+<h2>4. Fields to Keep</h2><table><thead><tr><th>Layer</th><th>Fields</th><th>Use</th></tr></thead><tbody><tr><td>Post</td><td>URL, author, publish time, text, hashtags</td><td>Volume and themes</td></tr><tr><td>Engagement</td><td>Reposts, comments, likes</td><td>Spread reference</td></tr><tr><td>Region</td><td>IP location, if exported</td><td>Regional distribution</td></tr><tr><td>Comments</td><td>Commenter, text, time, likes, level</td><td>Feedback and sentiment</td></tr><tr><td>User</td><td>Profile, verification, followers, bio</td><td>Influence and profiling</td></tr></tbody></table><p>Confirm how reposts, comments, and likes are counted before comparing platforms.</p>
+<h2>5. Check the Export</h2><figure><img src="/blog/images/weibo-result.jpg" width="1200" height="634" loading="lazy" alt="Weibo export result"><figcaption>Figure 2: the exported post table can be filtered by date, keyword, and engagement.</figcaption></figure><ol><li>Remove duplicate posts and comments and keep a raw backup.</li><li>Check the date range, empty values, encoding, and field alignment.</li><li>Open sample posts to verify text, engagement, and comments.</li><li>Flag marketing accounts and off-topic posts instead of deleting them.</li></ol>
+<h2>6. Common Errors</h2><h3>Duplicates or wrong range</h3><p>Check the query and paging, confirm the date range, and deduplicate before merging multiple runs.</p><h3>No comments</h3><p>The comment section may be closed, the post deleted, or only partly visible.</p><h3>Garbled CSV</h3><p>Open it as UTF-8, or import it through Excel's From Text/CSV instead of double-clicking.</p><h3>Login expires</h3><p>Log in again and refresh the session as described in the current version notes.</p>
+<h2>7. Compliance</h2><p>Only process public posts and comments, keep request rates reasonable, and follow platform rules and applicable laws. Public-opinion data may include personal information and unverified claims; keep original links and avoid quoting out of context.</p>
+<h2>8. FAQ</h2><h3>Can I set a date range?</h3><p>Yes, set the start and end date when searching by keyword.</p><h3>Can I collect user profiles?</h3><p>Yes, public profile fields can be collected from profile URLs.</p><h3>Can I export Excel directly?</h3><p>CSV is exported by default; open or import it in Excel and save as needed.</p><h3>How should I control frequency?</h3><p>Collect in small batches at a low rate to reduce interruptions and stay within platform rules.</p>
+<h2>Extend: From Data to a Conclusion</h2><p>Start with volume trends and key dates, then add themes and sentiment, and keep representative posts and comments. Engagement depends on account size and timing, so report the method and samples rather than a single absolute number.</p>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/weibo_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=weibo-keyword" data-track="weibo">View the Weibo tool →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>9. Three Common Mistakes</h2><p>Reporting volume without samples, treating reposts as support, and ignoring marketing or coordinated accounts. State the time window, sample size, and representative posts behind every conclusion.</p><h2>10. A Reusable Weekly Report</h2><p>Keep three blocks: the monitoring scope and queries, volume and theme changes, and representative samples with next actions. Archive the queries, exports, and cleaning rules so the next period can be compared.</p><p>Update hourly during a crisis and daily or weekly for routine monitoring; match the cadence to the event stage.</p><h2>11. Is the Sample Enough?</h2><p>Check coverage across keywords, time periods, and account types, not just volume. If only large accounts are included, the volume conclusion will be biased; add ordinary users before comparing tiers.</p><p>Keep a list of excluded records with reasons (duplicate, marketing account, irrelevant) and keep original links so quotes are not taken out of context.</p><p>There is no universal sample size; stronger conclusions need more data, and crisis reports should state the exact time window.</p><p>Every conclusion should trace back to original posts and samples; avoid reporting trends without evidence.</p><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/douyin-comments.html">How to collect and organize Douyin comments</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li><li><a href="/blog/posts/excel-automation.html">Excel automation for faster weekly reports</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
@@ -121,4 +200,20 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script><script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

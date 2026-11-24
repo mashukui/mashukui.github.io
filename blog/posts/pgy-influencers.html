@@ -58,6 +58,12 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
 <main class="article"><div class="lang-zh"><div class="eyebrow">小红书 · 蒲公英达人</div><h1>蒲公英达人筛选思路：如何建立可复核的候选名单</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">从品牌目标、达人画像、内容证据、合作指标到候选表管理，介绍达人筛选的基本方法。</p><h2>一、从品牌目标反推筛选条件</h2><p>先确定推广目标是品牌曝光、产品种草、线索转化还是内容共创。目标不同，达人类型、内容形式和评估指标也不同。</p><h2>二、画像维度要可解释</h2><p>可考虑内容垂类、受众地域、账号风格、更新稳定性、历史合作内容和预算区间。每个维度都应说明为何与当前项目有关，避免把粉丝数当作唯一门槛。</p><h2>三、候选名单需要证据</h2><p>记录账号主页、代表性笔记、公开合作信息、筛选日期和核验状态。对于报价、档期或合作政策等易变信息，应以平台当前展示或双方确认的信息为准，不要沿用旧表格中的历史数字。</p><h2>四、评估内容匹配度</h2><ul><li>内容主题是否与产品使用场景一致。</li><li>近期内容是否持续、质量是否稳定。</li><li>评论区讨论是否与目标受众相关。</li><li>历史商业内容是否自然且符合品牌要求。</li></ul><h2>五、形成可执行的分层</h2><p>可以分为优先沟通、继续观察、暂不匹配三类，并记录理由和复核日期。最终合作名单应由人工审核，确认报价、排期、权益和合规要求。</p><div class="note">达人筛选涉及商业决策，公开互动指标只能作为参考，不能据此断言真实受众构成或保证投放效果。</div>
@@ -69,7 +75,7 @@
 <h2>4. Evaluate Content Fit</h2><ul><li>Are the content themes aligned with the product's use cases?</li><li>Are recent posts consistent in frequency and quality?</li><li>Are comment discussions relevant to the target audience?</li><li>Does previous sponsored content feel natural and meet brand requirements?</li></ul>
 <h2>5. Create Actionable Tiers</h2><p>Group candidates into priority outreach, continue monitoring, and not currently suitable, with reasons and review dates. A human review should confirm rates, schedules, deliverables, and compliance requirements before a final collaboration decision.</p>
 <div class="note">Creator selection involves commercial decisions. Public engagement metrics are only references; they cannot prove audience composition or guarantee campaign performance.</div>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/pgy_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/pgy_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
 <footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
@@ -115,4 +121,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

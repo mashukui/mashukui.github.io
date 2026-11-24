@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="介绍关键词研究、笔记筛选、评论整理和数据复核的基本思路，帮助建立清晰、可追溯的数据表。"><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://mashukui.github.io/blog/posts/xhs-notes.html">
-<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="小红书笔记与评论数据，应该如何整理？"><meta property="og:description" content="介绍关键词研究、笔记筛选、评论整理和数据复核的基本思路，帮助建立清晰、可追溯的数据表。">
-<title>小红书笔记与评论数据，应该如何整理？ - 马哥数据采集</title><style>
+<meta name="description" content="从确定关键词、采集笔记与评论，到字段核对、图片下载和表格分析，附字段表、常见报错与合规提示。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/xhs-notes">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="小红书笔记数据怎么采集和整理？关键词、评论与表格分析"><meta property="og:description" content="从确定关键词、采集笔记与评论，到字段核对、图片下载和表格分析，附字段表、常见报错与合规提示。">
+<title>小红书笔记数据怎么采集和整理？关键词、评论与表格分析 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
 .language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
 {
@@ -11,10 +11,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "小红书笔记与评论数据，应该如何整理？",
-      "description": "介绍关键词研究、笔记筛选、评论整理和数据复核的基本思路，帮助建立清晰、可追溯的数据表。",
-      "datePublished": "2026-11-22",
-      "dateModified": "2026-11-22",
+      "headline": "小红书笔记数据怎么采集和整理？关键词、评论与表格分析",
+      "description": "从确定关键词、采集笔记与评论，到字段核对、图片下载和表格分析，附字段表、常见报错与合规提示。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
       "author": {
         "@type": "Person",
         "name": "马哥python说"
@@ -26,9 +26,9 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mashukui.github.io/blog/posts/xhs-notes.html"
+        "@id": "https://mashukui.github.io/blog/posts/xhs-notes"
       },
-      "url": "https://mashukui.github.io/blog/posts/xhs-notes.html",
+      "url": "https://mashukui.github.io/blog/posts/xhs-notes",
       "inLanguage": "zh-CN"
     },
     {
@@ -49,8 +49,45 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "小红书笔记与评论数据，应该如何整理？",
-          "item": "https://mashukui.github.io/blog/posts/xhs-notes.html"
+          "name": "小红书笔记数据怎么采集和整理？关键词、评论与表格分析",
+          "item": "https://mashukui.github.io/blog/posts/xhs-notes"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "需要登录小红书账号吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "按软件当前版本的提示配置登录态。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能下载无水印图片吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持笔记图片下载，以当前版本为准。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能按博主采集吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以，输入博主主页链接采集公开笔记。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持 Mac 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持 Windows 和 macOS。"
+          }
         }
       ]
     }
@@ -58,25 +95,67 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
-<main class="article"><div class="lang-zh"><div class="eyebrow">小红书 · 实战教程</div><h1>小红书笔记与评论数据，应该如何整理？</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍关键词研究、笔记筛选、评论整理和数据复核的基本思路，帮助建立清晰、可追溯的数据表。</p>
-<h2>一、从业务问题拆解关键词</h2><p>不要一开始就堆叠大量宽泛词。先列出品牌、产品类别、使用场景、痛点和竞品等词组，再根据实际搜索结果调整。记录每组关键词的目的，避免后续无法解释数据来源。</p>
-<h2>二、建立笔记筛选规则</h2><p>建议记录笔记链接、标题或文本摘要、发布时间、互动指标和采集日期。筛选时结合内容相关性与发布时间，不要只按点赞量排序；互动量高不一定意味着内容与研究目标相关。</p>
-<h2>三、评论数据如何归档</h2><ul><li>保留评论对应的笔记链接，避免评论脱离上下文。</li><li>把评论文本与时间等字段分开存储，方便筛选。</li><li>对同一笔记的评论设置稳定的关联标识。</li><li>对重复、空白和异常内容设置明确的清洗规则。</li></ul>
-<h2>四、建议的工作表结构</h2><p><strong>笔记表：</strong>笔记链接、关键词、发布时间、内容主题、互动指标、采集时间。</p><p><strong>评论表：</strong>笔记链接、评论文本、评论时间、必要的公开互动指标、采集时间。</p><p>将笔记表和评论表分开，能避免一篇笔记对应多条评论时重复堆叠笔记信息。</p>
-<h2>五、质量复核与合规</h2><p>抽样打开原笔记，检查内容是否仍然可见、字段是否错位、数据是否重复。使用数据时遵守平台规则和适用法律；未经授权不要尝试访问非公开内容，也不要将可识别个人身份的信息用于无关目的。</p>
-<div class="note">建议把原始导出文件设为只读备份，在副本中完成清洗和分析，便于复核与追踪。</div>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/xhs_one_spider/">查看相关产品 →</a></div>
-<a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en">
-<div class="eyebrow">Xiaohongshu · Practical Guide</div><h2 class="post-title-en">How to Organize Xiaohongshu Posts and Comment Data</h2><div class="date"><time datetime="2026-11-22">2026-11-22</time> · Mage Data Tools</div><p class="lead">A practical introduction to keyword research, post filtering, comment organization, and data validation for clear and traceable datasets.</p>
-<h2>1. Turn Business Questions into Keywords</h2><p>Do not begin by collecting a large number of broad terms. Start with groups such as brands, product categories, use cases, pain points, and competitors, then refine them based on actual search results. Record the purpose of each keyword group so the data source remains explainable.</p>
-<h2>2. Set Rules for Selecting Posts</h2><p>Consider recording the post URL, title or text summary, publication date, engagement metrics, and collection date. Evaluate relevance together with recency rather than sorting only by likes. High engagement does not necessarily mean that a post is relevant to your research.</p>
-<h2>3. Organize Comment Data</h2><ul><li>Keep the URL of the post associated with each comment so it is not separated from its context.</li><li>Store comment text and timestamps in separate fields for easier filtering.</li><li>Use a stable key to associate comments with the same post.</li><li>Define explicit rules for duplicates, blank records, and abnormal content.</li></ul>
-<h2>4. Recommended Workbook Structure</h2><p><strong>Posts sheet:</strong> post URL, keyword, publication date, topic, engagement metrics, and collection date.</p><p><strong>Comments sheet:</strong> post URL, comment text, comment timestamp, relevant public engagement metrics, and collection date.</p><p>Keeping posts and comments in separate sheets avoids repeating post information when one post has many comments.</p>
-<h2>5. Quality Review and Compliance</h2><p>Open a sample of the original posts to check visibility, field alignment, and duplicates. Follow platform rules and applicable laws. Do not attempt to access non-public content without authorization or use identifiable personal information for unrelated purposes.</p>
-<div class="note">Keep the original export as a read-only backup, then clean and analyze a copy. This makes review and traceability easier.</div>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<main class="article"><div class="lang-zh"><div class="eyebrow">小红书 · 实战教程</div><h1>小红书笔记数据怎么采集和整理？关键词、评论与表格分析</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从确定关键词、采集笔记与评论，到字段核对、图片下载和表格分析，附字段表、常见报错与合规提示。</p>
+<h2>一、笔记数据能用来做什么</h2><p>小红书笔记数据常见三类用途：选题参考（哪些话题在起量）、种草分析（用户在意什么卖点）、达人筛选（内容风格和互动是否匹配）。先确定用途，再决定采关键词、博主主页还是单篇笔记。</p>
+<h2>二、准备关键词与笔记清单</h2><ol><li>核心词加场景词、品类词和同义词，避免只搜一个大词。</li><li>记录搜索日期和排序方式，不同时间的结果会变化。</li><li>确认笔记公开可访问；删除、仅粉丝可见或违规下架的笔记会返回空结果。</li></ol>
+<h2>三、采集步骤</h2><figure><img src="/blog/images/xhs-gui.jpg" width="1200" height="992" loading="lazy" alt="小红书笔记采集界面"><figcaption>图 1：选择搜索笔记或博主主页采集，填写关键词或主页链接。</figcaption></figure><ol><li>打开软件，选择搜索笔记、评论或博主主页模块。</li><li>输入关键词、笔记链接或博主主页链接。</li><li>设置页数和保存目录，开始执行。</li><li>结束后查看 CSV、图片或视频文件以及 logs 日志。</li></ol>
+<h2>四、导出字段</h2><table><thead><tr><th>字段</th><th>含义</th><th>用途</th></tr></thead><tbody><tr><td>笔记链接 / id</td><td>笔记地址与标识</td><td>回溯来源</td></tr><tr><td>笔记标题 / 正文</td><td>内容文本</td><td>选题与关键词分析</td></tr><tr><td>作者昵称 / 链接</td><td>博主信息</td><td>达人筛选</td></tr><tr><td>发布时间</td><td>笔记发布日</td><td>时效性判断</td></tr><tr><td>点赞 / 收藏 / 评论</td><td>互动数据</td><td>内容表现参考</td></tr><tr><td>笔记类型</td><td>图文或视频</td><td>内容形式对比</td></tr><tr><td>图片 / 视频文件</td><td>下载的素材</td><td>素材归档</td></tr></tbody></table><p>互动数据要结合发布时间和账号体量看，不要只用点赞绝对值排序。</p>
+<h2>五、导出后的检查与清洗</h2><figure><img src="/blog/images/xhs-result.jpg" width="1200" height="566" loading="lazy" alt="小红书笔记导出结果"><figcaption>图 2：导出后的笔记表，可以按关键词、作者和发布时间筛选。</figcaption></figure><ol><li>删除重复笔记和重复评论，保留原始备份。</li><li>检查标题、正文是否被截断，图片链接是否可访问。</li><li>统一时间格式，标记抽奖、广告等特殊笔记。</li><li>抽样打开原笔记，核对互动数据和评论。</li></ol>
+<h2>六、常见报错与排查</h2><h3>搜索结果为 0</h3><p>确认关键词没有被限流、笔记是否公开；换一个搜索词或缩短时间范围再试。</p><h3>图片或视频下载失败</h3><p>检查链接是否失效、输出目录权限和磁盘空间；批量任务中单篇失败通常不影响后续。</p><h3>评论数量偏少</h3><p>评论区可能关闭，或平台只返回部分评论；先确认笔记可正常打开。</p><h3>登录失效</h3><p>重新登录软件，按当前版本说明重新读取登录态，避免频繁切换账号。</p>
+<h2>七、合规提示</h2><p>只处理公开可见的笔记和评论，控制频率，遵守平台规则和适用法律。笔记中的图片、正文和评论可能包含个人信息，转载或分析时注意授权和最小必要原则。</p>
+<h2>八、常见问题</h2><h3>需要登录小红书账号吗？</h3><p>按当前版本说明配置登录态即可，具体以软件内提示为准。</p><h3>能下载无水印图片吗？</h3><p>支持笔记图片下载，实际效果以当前版本和笔记类型为准。</p><h3>能按博主采集吗？</h3><p>可以，输入博主主页链接即可采集公开笔记列表。</p><h3>支持 Mac 吗？</h3><p>支持 Windows 和 macOS。</p>
+<h2>延伸：从笔记到内容策略</h2><p>先把笔记按「选题类型 × 发布时间」分组，看哪类内容在持续起量；再抽取高互动笔记的标题和封面做人工拆解，归纳可复用的表达；最后把评论里的真实问题整理成选题库。这样得到的是一份可执行的内容清单，而不是一堆链接。</p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/xhs_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=xhs-notes" data-track="xhs">查看小红书聚合采集 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「小红书」获取使用说明。</p></div>
+<h2>九、三个常见误区</h2><p>只按点赞排序，忽略发布时间和账号体量；把收藏直接当成购买意图；只看爆款笔记，不看中腰部账号的稳定表现。建议同时看互动率、发布时间和内容类型，再做判断。</p><h2>十、把结果做成可复用的周报</h2><p>固定三块：本周关键词和样本范围、表现最好的 3 类内容及原因、下周要验证的选题。把笔记链接、导出文件和图片素材放在同一目录，方便复盘。</p><p>如果是给品牌方看，报告里附 2–3 条代表性笔记的截图和原文链接，比只给数据表更有说服力。</p><h2>十一、样本够不够，怎么判断</h2><p>不看总数，看是否覆盖主要关键词、内容类型和发布时间；如果只有爆款笔记、没有中腰部样本，结论会偏。先补样本，再比较不同账号体量的表现。</p><p>保留一份「未采用样本」清单，记录被排除的原因（重复、广告、无关），复核时能解释排除口径，也能避免把正常内容误删。</p><p>样本量没有统一标准，但结论越强，要求的样本就越多；给品牌方的报告尤其要写清样本范围。</p><p>最后提醒：互动数据只是参考，内容是否匹配品牌调性，仍需要人工看原文和画面；不要用一张数据表代替内容判断。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/pgy-influencers.html">蒲公英达人筛选思路</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">小红书 · 实战教程</div><h2 class="post-title-en">小红书笔记数据怎么采集和整理？关键词、评论与表格分析</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从确定关键词、采集笔记与评论，到字段核对、图片下载和表格分析，附字段表、常见报错与合规提示。</p>
+<h2>1. What Note Data Is For</h2><p>Xiaohongshu note data usually serves three purposes: finding rising topics, understanding which selling points users care about, and screening creators. Define the goal before choosing keyword, profile, or single-note collection.</p>
+<h2>2. Prepare Keywords and a Note List</h2><ol><li>Combine core terms with scenario, category, and synonym terms.</li><li>Record the search date and sorting mode; results change over time.</li><li>Confirm notes are public; deleted or followers-only notes return nothing.</li></ol>
+<h2>3. Collection Steps</h2><figure><img src="/blog/images/xhs-gui.jpg" width="1200" height="992" loading="lazy" alt="Xiaohongshu note collection interface"><figcaption>Figure 1: choose search, comment, or profile collection and enter the keyword or URL.</figcaption></figure><ol><li>Open the tool and choose a module.</li><li>Enter a keyword, note URL, or creator profile URL.</li><li>Set pages and the output folder, then start.</li><li>Check the CSV, downloaded media, and logs when it finishes.</li></ol>
+<h2>4. Fields to Keep</h2><table><thead><tr><th>Field</th><th>Meaning</th><th>Use</th></tr></thead><tbody><tr><td>Note URL / ID</td><td>Address and identifier</td><td>Traceability</td></tr><tr><td>Title / body</td><td>Content text</td><td>Topic and keyword analysis</td></tr><tr><td>Author / profile</td><td>Creator info</td><td>Creator screening</td></tr><tr><td>Publish date</td><td>When it was posted</td><td>Freshness</td></tr><tr><td>Likes / saves / comments</td><td>Engagement</td><td>Performance reference</td></tr><tr><td>Note type</td><td>Image or video</td><td>Format comparison</td></tr><tr><td>Media files</td><td>Downloaded assets</td><td>Asset archive</td></tr></tbody></table><p>Judge engagement together with publish date and account size, not absolute likes alone.</p>
+<h2>5. Check and Clean</h2><figure><img src="/blog/images/xhs-result.jpg" width="1200" height="566" loading="lazy" alt="Xiaohongshu note export"><figcaption>Figure 2: the exported table can be filtered by keyword, author, and date.</figcaption></figure><ol><li>Remove duplicate notes and comments and keep a raw backup.</li><li>Check truncated text and broken media links.</li><li>Normalize dates and flag ads or giveaway notes.</li><li>Open sample notes to verify engagement and comments.</li></ol>
+<h2>6. Common Errors</h2><h3>Zero search results</h3><p>Check whether the keyword is restricted and the notes are public; try another term or a shorter date range.</p><h3>Media download fails</h3><p>Check the URL, folder permission, and disk space. One failure usually does not stop the batch.</p><h3>Fewer comments than expected</h3><p>The comment section may be closed or the platform may expose only part of the comments.</p><h3>Login expires</h3><p>Log in again and refresh the session as described in the current version notes.</p>
+<h2>7. Compliance</h2><p>Only process public notes and comments, keep request rates reasonable, and follow platform rules and applicable laws. Note text, images, and comments may contain personal information.</p>
+<h2>8. FAQ</h2><h3>Do I need a Xiaohongshu account?</h3><p>Configure the login session as described in the current version.</p><h3>Can it download watermark-free images?</h3><p>Note images can be downloaded; results depend on the current version and note type.</p><h3>Can I collect by creator?</h3><p>Yes, enter a creator profile URL to collect the public note list.</p><h3>Does it support macOS?</h3><p>Yes, both Windows and macOS builds are available.</p>
+<h2>Extend: From Notes to a Content Plan</h2><p>Group notes by topic and publish date to see what keeps rising, then break down high-performing titles and covers, and turn repeated questions in comments into a topic bank. The output is an actionable content list, not just a pile of links.</p>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/xhs_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=xhs-notes" data-track="xhs">View the Xiaohongshu tool →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>9. Three Common Mistakes</h2><p>Sorting only by likes, treating saves as purchase intent, and looking only at viral notes while ignoring steady mid-tier creators. Compare engagement rate, publish date, and note type together.</p><h2>10. A Reusable Weekly Report</h2><p>Keep three blocks: the keyword and sample scope, the three best-performing content types with reasons, and the topics to test next week. Store note URLs, exports, and images together for review.</p><p>For brand reports, add two or three representative notes with screenshots and original links; that is more convincing than a table alone.</p><h2>11. Is the Sample Enough?</h2><p>Check coverage across keywords, content types, and publish dates, not just row count. If only viral notes are included and mid-tier creators are missing, the conclusion will be skewed.</p><p>Keep a list of excluded records with reasons (duplicate, ad, irrelevant) so the exclusion rule can be reviewed and normal content is not deleted by mistake.</p><p>There is no universal sample size; stronger conclusions need more data, and brand reports should always state the scope.</p><p>Finally, engagement is only a reference; review the original note and visuals before judging brand fit.</p><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/douyin-comments.html">How to collect and organize Douyin comments</a></li><li><a href="/blog/posts/pgy-influencers.html">How to screen Pugongying creators</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
@@ -121,4 +200,20 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script><script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

@@ -58,6 +58,12 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
 <main class="article"><div class="lang-zh"><div class="eyebrow">小红书 · 评论分析</div><h1>小红书评论分析：如何清洗、分类与归纳用户反馈</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍小红书评论数据的关联、去重、文本清洗、主题分类与人工抽样复核方法。</p><h2>一、评论必须保留笔记上下文</h2><p>评论离开原笔记后容易被误读。建议保留笔记链接或唯一标识、笔记主题、评论文本、评论时间和采集时间。笔记表与评论表分开存储，再通过关联键连接。</p><h2>二、建立清洗规则</h2><ul><li>去除完全重复的记录，同时保留原始数据副本。</li><li>统一空白字符和明显格式异常，不随意改写原意。</li><li>将表情、链接或特殊符号按研究需要保留或单独标记。</li><li>区分缺失值与真实的空文本，不要一概填成相同内容。</li></ul><h2>三、主题分类从小样本开始</h2><p>先人工阅读一批评论，归纳产品体验、价格、使用方法、售后、情绪表达等初始主题。制定每类的定义和正反例，再对更大样本进行标注。允许一条评论对应多个主题，也允许“其他/无法判断”。</p><h2>四、做抽样复核</h2><p>抽查不同主题、不同时间和不同笔记来源的评论，检查分类是否一致。对讽刺、反问、上下文依赖和极短评论要格外谨慎，不能仅靠关键词判断情绪。</p><div class="note">评论文本可能包含个人信息。公开展示时应做必要脱敏，避免把个别用户言论包装成整体结论。</div><h2>五、输出分析结论</h2><p>报告中说明样本来源、时间范围、筛选条件和分类方法。用典型主题和适量原文片段解释发现，同时说明样本偏差与结论局限。</p>
@@ -69,7 +75,7 @@
 <h2>4. Review Samples</h2><p>Check comments from different themes, dates, and post sources to assess consistency. Be especially careful with sarcasm, rhetorical questions, context-dependent comments, and very short text. Sentiment should not be determined by keywords alone.</p>
 <div class="note">Comments may contain personal information. Redact it when publishing results, and do not present isolated user statements as conclusions about an entire population.</div>
 <h2>5. Report the Findings</h2><p>Describe the sample source, time range, selection criteria, and classification method. Explain findings with representative themes and a limited number of excerpts, while noting sampling bias and limitations.</p>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
 <footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
@@ -115,4 +121,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>

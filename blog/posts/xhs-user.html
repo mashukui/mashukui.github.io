@@ -58,6 +58,12 @@
 }
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+</style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
 <main class="article"><div class="lang-zh"><div class="eyebrow">小红书 · 创作者研究</div><h1>小红书创作者筛选：从笔记内容到账号匹配度</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">讲解如何通过公开笔记主题、更新情况、内容质量和账号定位建立创作者候选名单。</p><h2>一、先定义目标创作者</h2><p>明确品类、目标人群、内容形式、地区和合作目的。比如种草体验、专业测评和教程分享对应不同的创作者画像。</p><h2>二、从笔记而不是单一数字开始</h2><p>观察公开笔记的主题一致性、表达方式、内容原创度、更新节奏和评论讨论质量。互动数据可以辅助判断，但会受发布时间、内容形式和平台分发影响。</p><h2>三、候选表字段</h2><ul><li>账号主页链接、账号名称和公开简介。</li><li>代表性笔记链接、主题和发布时间。</li><li>内容匹配度、更新活跃度和人工核验备注。</li><li>公开指标的数值、采集日期和来源。</li><li>筛选状态及下一步动作。</li></ul><h2>四、采用统一评分标准</h2><p>可以将内容相关性、内容质量、更新稳定性和受众互动分别设为评价维度，并写清评分依据。不要将主观评分伪装成客观事实，最好由两人抽样复核评分一致性。</p><h2>五、维护候选名单</h2><p>账号信息会变化，建议定期复查主页与近期内容。只使用公开且必要的信息，不要推断个人敏感属性，也不要收集与合作无关的私人联系方式。</p><div class="note">候选名单只用于初筛，正式合作前仍需人工确认账号真实性、内容适配度与商业合作条件。</div>
@@ -69,7 +75,7 @@
 <h2>4. Use Consistent Evaluation Criteria</h2><p>Evaluate content relevance, quality, publishing consistency, and audience interaction as separate dimensions, and document the basis for each score. Do not present subjective ratings as objective facts. A second reviewer can check a sample to assess scoring consistency.</p>
 <h2>5. Maintain the Shortlist</h2><p>Account information changes, so periodically revisit profiles and recent posts. Use only public and necessary information. Do not infer sensitive personal attributes or collect private contact details unrelated to the collaboration.</p>
 <div class="note">A shortlist is only for initial screening. Before collaboration, manually confirm account authenticity, content fit, and commercial terms.</div>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
 <footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
@@ -115,4 +121,12 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-</body></html>
+<script>
+(function(){
+  document.querySelectorAll('.cta a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>
