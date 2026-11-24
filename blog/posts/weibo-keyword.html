@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/weibo-keyword">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="微博关键词数据怎么整理？从搜索结果到舆情表格"><meta property="og:description" content="从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。">
+<title>微博关键词数据怎么整理？从搜索结果到舆情表格 - 马哥数据采集</title><style>
+:root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
+.language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "微博关键词数据怎么整理？从搜索结果到舆情表格",
+      "description": "从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "author": {
+        "@type": "Person",
+        "name": "马哥python说"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "马哥数据采集",
+        "url": "https://mashukui.github.io/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mashukui.github.io/blog/posts/weibo-keyword"
+      },
+      "url": "https://mashukui.github.io/blog/posts/weibo-keyword",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://mashukui.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "技术博客",
+          "item": "https://mashukui.github.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "微博关键词数据怎么整理？从搜索结果到舆情表格",
+          "item": "https://mashukui.github.io/blog/posts/weibo-keyword"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+</head><body>
+<header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
+<main class="article"><div class="lang-zh"><div class="eyebrow">微博 · 舆情分析</div><h1>微博关键词数据怎么整理？从搜索结果到舆情表格</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从关键词分组、时间范围设定，到博文与评论采集、字段核对和表格分析，整理一套可复用的微博舆情数据流程。</p>
+<h2>一、先明确监测目标</h2><p>先写清楚要回答的问题：品牌声量、事件走势，还是竞品对比。目标决定关键词、时间范围和需要采集的字段，避免一上来就大规模抓取。</p>
+<h2>二、设计关键词与时间范围</h2><ol><li>核心词加同义词、缩写和常见错写，减少漏采。</li><li>准备排除词，过滤明显无关的内容。</li><li>按事件阶段分时间段检索，并记录每次使用的检索式。</li></ol>
+<h2>三、采集哪些字段</h2><p>博文层面建议保留：博文链接、作者、发布时间、正文、话题标签、转发数、评论数、点赞数和 IP 属地；评论层面保留评论者、评论内容、评论时间、点赞数和评论级别。转发、评论、点赞的口径要提前确认，避免分析时混用。</p>
+<h2>四、导出后的检查</h2><ol><li>删除重复博文和重复评论，保留原始备份。</li><li>检查时间范围、空值和乱码。</li><li>抽样打开原博文，核对正文、互动数据和评论是否对应。</li><li>把明显营销号、无关话题单独标记，不要直接删除。</li></ol>
+<div class="note">舆情数据里可能包含个人信息和未经证实的说法。引用时保留原文链接，避免断章取义，也不要公开传播可识别个人身份的信息。</div>
+<h2>五、分析口径与呈现</h2><p>先看声量趋势和话题分布，再做主题分类和情绪标注；互动量受账号体量和时间影响，只能作为参考。报告中保留代表性样本和原文链接，方便复核。</p>
+<h2>六、合规与留存</h2><p>只处理公开数据，遵守平台规则和适用法律；保留检索式、时间范围、导出文件和清洗规则，方便复现和更新。</p>
+<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/weibo_one_spider/">查看相关产品 →</a></div><a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en"><div class="eyebrow">Weibo · Public Opinion</div><h2 class="post-title-en">How to Organize Weibo Keyword Data into a Research Table</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">A practical workflow for keyword groups, time windows, post and comment collection, field checks, and analysis tables.</p>
+<h2>1. Define the Monitoring Goal</h2><p>Start with the question you need to answer: brand visibility, the arc of an event, or a competitor comparison. The goal determines keywords, time range, and fields, and prevents unnecessary large-scale collection.</p>
+<h2>2. Design Keywords and Time Windows</h2><ol><li>Combine core terms with synonyms, abbreviations, and common misspellings to reduce gaps.</li><li>Prepare exclusion terms to filter obviously irrelevant posts.</li><li>Search in stages across the event timeline, and record each query you use.</li></ol>
+<h2>3. Choose the Fields</h2><p>For posts, keep the URL, author, publish time, text, hashtags, reposts, comments, likes, and IP location. For comments, keep the commenter, comment text, comment time, likes, and comment level. Confirm how reposts, comments, and likes are counted before analysis so the metrics are not mixed.</p>
+<h2>4. Check the Export</h2><ol><li>Remove duplicate posts and comments, and keep a raw backup.</li><li>Check the time range, empty values, and encoding issues.</li><li>Open a sample of original posts to verify text, engagement, and comments.</li><li>Flag obvious marketing accounts and off-topic posts instead of deleting them.</li></ol>
+<div class="note">Public-opinion data may include personal information and unverified claims. Keep the original links when citing, avoid quoting out of context, and do not publicly share identifiable personal information.</div>
+<h2>5. Analysis and Presentation</h2><p>Start with volume trends and topic distribution, then add theme categories and sentiment labels. Engagement is affected by account size and timing, so treat it as a reference only. Keep representative samples and original links in the report for review.</p>
+<h2>6. Compliance and Record-Keeping</h2><p>Only process public data and follow platform rules and applicable laws. Keep the queries, time ranges, exported files, and cleaning rules so the work can be reproduced and updated.</p>
+<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/weibo_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+(function(){
+  var buttons=document.querySelectorAll('[data-language]');
+  var zh=document.querySelector('.lang-zh');
+  var en=document.querySelector('.lang-en');
+  var titleZh=document.querySelector('.lang-zh h1');
+  var titleEn=document.querySelector('.lang-en .post-title-en');
+  var desc=document.querySelector('meta[name="description"]');
+  var ogTitle=document.querySelector('meta[property="og:title"]');
+  var ogDesc=document.querySelector('meta[property="og:description"]');
+  var navLinks=document.querySelectorAll('.links a[data-zh]');
+  var originalTitle=titleZh?titleZh.textContent+' - 马哥数据采集':document.title;
+  var originalDesc=desc?desc.getAttribute('content'):'';
+  var originalOgDesc=ogDesc?ogDesc.getAttribute('content'):originalDesc;
+  function setLanguage(value){
+    var lang=value==='en'?'en':'zh-CN';
+    document.documentElement.lang=lang;
+    buttons.forEach(function(button){button.setAttribute('aria-pressed',String(button.getAttribute('data-language')===lang));});
+    navLinks.forEach(function(link){link.textContent=lang==='en'?link.getAttribute('data-en'):link.getAttribute('data-zh');});
+    if(lang==='en'){
+      document.title=(titleEn?titleEn.textContent:'Article')+' - Mage Data Tools';
+      if(desc)desc.setAttribute('content',titleEn?titleEn.textContent+'. Practical guidance from Mage Data Tools.':'');
+      if(ogTitle)ogTitle.setAttribute('content',titleEn?titleEn.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',desc?desc.getAttribute('content'):'');
+    }else{
+      document.title=originalTitle;
+      if(desc)desc.setAttribute('content',originalDesc);
+      if(ogTitle)ogTitle.setAttribute('content',titleZh?titleZh.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',originalOgDesc);
+    }
+    try{localStorage.setItem('mashukui-home-language',lang);}catch(error){}
+  }
+  buttons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.getAttribute('data-language'));});});
+  var saved='zh-CN';try{saved=localStorage.getItem('mashukui-home-language')||'zh-CN';}catch(error){}
+  setLanguage(saved);
+})();
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?243b5a814dfe16a3873817e8afb93de6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body></html>
