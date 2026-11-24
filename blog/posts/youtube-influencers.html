@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="从关键词拆解、地区与频道筛选，到公开资料核验，介绍海外创作者初筛的实用流程。"><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://mashukui.github.io/blog/posts/youtube-influencers.html">
-<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="如何通过 YouTube 关键词寻找海外创作者？"><meta property="og:description" content="从关键词拆解、地区与频道筛选，到公开资料核验，介绍海外创作者初筛的实用流程。">
-<title>如何通过 YouTube 关键词寻找海外创作者？ - 马哥数据采集</title><style>
+<meta name="description" content="从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/youtube-influencers">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="YouTube 红人怎么筛选？从关键词、地区到联系方式"><meta property="og:description" content="从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。">
+<title>YouTube 红人怎么筛选？从关键词、地区到联系方式 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
 .language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
 {
@@ -11,10 +11,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "如何通过 YouTube 关键词寻找海外创作者？",
-      "description": "从关键词拆解、地区与频道筛选，到公开资料核验，介绍海外创作者初筛的实用流程。",
-      "datePublished": "2026-11-22",
-      "dateModified": "2026-11-22",
+      "headline": "YouTube 红人怎么筛选？从关键词、地区到联系方式",
+      "description": "从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
       "author": {
         "@type": "Person",
         "name": "马哥python说"
@@ -26,9 +26,9 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mashukui.github.io/blog/posts/youtube-influencers.html"
+        "@id": "https://mashukui.github.io/blog/posts/youtube-influencers"
       },
-      "url": "https://mashukui.github.io/blog/posts/youtube-influencers.html",
+      "url": "https://mashukui.github.io/blog/posts/youtube-influencers",
       "inLanguage": "zh-CN"
     },
     {
@@ -49,8 +49,45 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "如何通过 YouTube 关键词寻找海外创作者？",
-          "item": "https://mashukui.github.io/blog/posts/youtube-influencers.html"
+          "name": "YouTube 红人怎么筛选？从关键词、地区到联系方式",
+          "item": "https://mashukui.github.io/blog/posts/youtube-influencers"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "需要 API Key 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "需要，支持多 Key 轮换。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能导邮箱吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "公开邮箱可补抓。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能按国家筛选吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "数据会更新吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议每月更新。"
+          }
         }
       ]
     }
@@ -59,32 +96,72 @@
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
 <style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
 .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
 </style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
-<main class="article"><div class="lang-zh"><div class="eyebrow">YouTube · 海外营销</div><h1>如何通过 YouTube 关键词寻找海外创作者？</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">从关键词拆解、地区与频道筛选，到公开资料核验，介绍海外创作者初筛的实用流程。</p>
-<h2>一、先定义创作者画像</h2><p>明确目标国家或语言、内容垂类、受众规模区间和合作形式。寻找英语市场户外装备创作者，与寻找西班牙语美妆创作者，关键词和筛选标准应当不同。</p>
-<h2>二、把主题拆成多组关键词</h2><p>可从产品词、使用场景、评测词、教程词和受众问题等角度扩展关键词。先用少量高相关词测试结果，再根据频道内容和视频标题逐步扩展，不建议只依赖单一关键词。</p>
-<h2>三、建立候选频道清单</h2><p>初筛时可以记录频道名称、频道链接、频道主题、公开订阅数据、主要语言、最近发布内容和采集日期。订阅量只是参考维度，还应查看近期视频是否持续更新、内容是否匹配以及受众互动是否自然。</p>
-<h2>四、核验公开资料</h2><ol><li>打开频道主页，确认频道主题和近期内容。</li><li>抽查数条视频，判断内容质量与品牌调性。</li><li>只记录频道主动公开的商务联系渠道。</li><li>标记数据来源和核验日期，避免把过期信息当作当前事实。</li></ol>
-<h2>五、理解 API 与数据边界</h2><p>使用 YouTube Data API 等官方接口时，需要了解 API 配额、字段可用性和接口政策。不同字段并非对所有频道都可用，联系邮箱等信息也不保证公开。不要绕过访问限制或将未公开个人信息作为采集目标。</p>
-<div class="note">达人名单是研究起点，不是合作结论。联系前应人工核验内容、受众、地区和合作适配度，并遵守当地营销与隐私要求。</div>
-<h2>六、让名单持续可用</h2><p>为候选频道增加状态字段，例如待核验、已核验、暂不匹配和已联系，并定期更新公开数据。这样比一次性导出一份名单更有实际价值。</p>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/youtube_user/">查看相关产品 →</a></div>
-<a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en">
-<div class="eyebrow">YouTube · Global Creator Research</div><h2 class="post-title-en">How to Find Global Creators with YouTube Keywords</h2><div class="date"><time datetime="2026-11-22">2026-11-22</time> · Mage Data Tools</div><p class="lead">A practical process for breaking down keywords, filtering by region and channel, and reviewing publicly available creator information.</p>
-<h2>1. Define the Creator Profile</h2><p>Specify target countries or languages, content categories, audience-size ranges, and collaboration formats. The keywords and selection criteria for English-speaking outdoor creators will differ from those for Spanish-speaking beauty creators.</p>
-<h2>2. Expand the Topic into Keyword Groups</h2><p>Build keyword variations around products, use cases, reviews, tutorials, and audience questions. Test a small set of highly relevant terms first, then expand based on channel topics and video titles. Avoid relying on a single keyword.</p>
-<h2>3. Build a Candidate Channel List</h2><p>For an initial review, record channel names and URLs, channel topics, publicly displayed subscriber metrics, primary language, recent uploads, and collection dates. Subscriber count is only one reference point; also review recent activity, content fit, and the quality of audience interaction.</p>
-<h2>4. Verify Public Information</h2><ol><li>Visit the channel page and confirm its topic and recent content.</li><li>Sample several videos to assess content quality and brand fit.</li><li>Record only business contact channels that the creator has made public.</li><li>Note the source and verification date so outdated information is not treated as current.</li></ol>
-<h2>5. Understand API and Data Boundaries</h2><p>When using official interfaces such as the YouTube Data API, understand quota limits, field availability, and API policies. Not every field is available for every channel, and business contact details may not be public. Do not bypass access restrictions or target non-public personal information.</p>
-<div class="note">A creator list is a research starting point, not a collaboration decision. Manually verify content, audience, region, and suitability before outreach, and follow local marketing and privacy requirements.</div>
-<h2>6. Keep the List Useful Over Time</h2><p>Add status fields such as pending review, verified, not a fit, and contacted. Update public information periodically. This is more useful than producing a one-time export.</p>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/youtube_user/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<main class="article"><div class="lang-zh"><div class="eyebrow">YouTube · 红人筛选</div><h1>YouTube 红人怎么筛选？从关键词、地区到联系方式</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。</p>
+<h2>一、YouTube 红人数据能用来做什么</h2><p>常见用途有三类：出海建联（找能触达目标市场的创作者）、达人建库（沉淀候选名单和联系方式）、竞品研究（看同品类频道的内容和增长）。先写清目标市场和品类，再决定筛选条件，避免抓一堆用不上的频道。</p>
+<h2>二、设定筛选维度</h2><ol><li>关键词：产品词、场景词、品类词，最好用英文和当地语言各跑一遍。</li><li>国家/地区：按目标市场筛选频道归属地。</li><li>粉丝量：按预算分档，不要只看头部。</li><li>活跃度：最近是否更新、视频数量和总观看量是否匹配。</li></ol><p>条件越具体，后续人工复核越省力；先跑 2–3 组条件对比结果。</p>
+<h2>三、采集步骤</h2><figure><img src="/blog/images/ytu-filter.jpg" width="1200" height="263" loading="lazy" alt="YouTube 红人筛选条件"><figcaption>图 1：设置关键词、国家地区和粉丝数范围。</figcaption></figure><ol><li>打开软件，填写关键词、国家/地区和粉丝数范围。</li><li>配置 YouTube Data API Key（当前版本支持多 Key 轮换）。</li><li>设置页数和保存目录，开始采集。</li><li>对重点频道再执行联系方式补抓，补充社媒和邮箱。</li></ol>
+<h2>四、导出字段</h2><table><thead><tr><th>字段</th><th>含义</th><th>用途</th></tr></thead><tbody><tr><td>频道名称 / ID</td><td>创作者标识</td><td>去重与建库</td></tr><tr><td>频道链接</td><td>主页地址</td><td>人工复核</td></tr><tr><td>国家 / 地区</td><td>频道归属</td><td>市场匹配</td></tr><tr><td>粉丝数 / 视频数</td><td>频道体量</td><td>分层</td></tr><tr><td>总观看次数</td><td>累计播放</td><td>内容表现参考</td></tr><tr><td>注册日期</td><td>频道创建时间</td><td>稳定性判断</td></tr><tr><td>社媒链接</td><td>Telegram / X / Instagram 等</td><td>建联路径</td></tr><tr><td>邮箱</td><td>公开联系方式</td><td>外联</td></tr></tbody></table><p>粉丝量和总观看要一起看；只有粉丝、没有播放的频道，合作价值通常有限。</p>
+<h2>五、检查与建库</h2><figure><img src="/blog/images/ytu-result.jpg" width="1200" height="481" loading="lazy" alt="YouTube 红人导出结果"><figcaption>图 2：导出后的频道表，可以按国家、粉丝数和关键词筛选。</figcaption></figure><ol><li>按频道 ID 去重，保留原始备份。</li><li>检查国家、粉丝数、邮箱是否缺失。</li><li>标记停更、搬运、内容明显不匹配的频道。</li><li>抽样打开频道主页，核对内容风格和受众。</li></ol>
+<h2>六、常见报错与排查</h2><h3>结果很少</h3><p>关键词可能太窄，或国家/粉丝量条件过严；放宽条件、换语言再试。</p><h3>邮箱缺失</h3><p>很多频道不公开邮箱，属于正常情况；可用社媒链接作为备选路径，或标记「需站内信」。</p><h3>API Key 限额</h3><p>单个 Key 有每日配额，当前版本支持多 Key 轮换；按提示补充或更换 Key。</p><h3>网络超时</h3><p>确认本机可以正常访问 YouTube API；降低并发、分批执行。</p>
+<h2>七、合规提示</h2><p>只处理公开的频道资料，控制请求频率，遵守 YouTube 服务条款和适用法律。邮箱、社媒等联系方式只能用于正常的商务沟通，不要群发骚扰或转卖名单。</p>
+<h2>八、常见问题</h2><h3>需要 API Key 吗？</h3><p>当前版本通过 YouTube Data API 采集，需要配置 Key，支持多 Key 轮换。</p><h3>能导邮箱吗？</h3><p>支持补抓频道公开的邮箱和社媒链接；未公开的无法获取。</p><h3>能按国家筛选吗？</h3><p>支持按频道归属国家/地区筛选。</p><h3>数据会更新吗？</h3><p>粉丝数和视频数会变化，建议每月更新一次达人库。</p>
+<h2>九、怎么给频道做评分</h2><p>建议四个维度：内容匹配度（40%）、受众与市场匹配（25%）、活跃度（20%）、联系方式可用性（15%）。每项 1–5 分，先人工打分 20 个样本统一口径，再批量处理；不要只用粉丝量决定合作。</p>
+<h2>十、一份可复用的检查清单</h2><ol><li>目标：市场、品类、预算。</li><li>条件：关键词、国家、粉丝量、活跃度。</li><li>字段：频道、粉丝、播放、国家、社媒、邮箱。</li><li>质量：去重、核对主页、标记停更。</li><li>输出：评分表、备选名单、采集日期。</li></ol><p>最后提醒：海外建联回复率低是常态，名单要足够大，但每一封邮件都要有针对性。</p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/youtube_user/?utm_source=blog&utm_medium=article&utm_campaign=youtube-influencers" data-track="youtube_user">查看 YouTube 红人采集 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「油管红人」获取使用说明。</p></div>
+<h2>十一、从名单到建联</h2><p>名单出来后，先按市场、粉丝档位和内容类型分组，每组挑 10–20 个重点频道；再核对最近 5 条视频的主题和评论区语言，确认受众确实在目标市场。邮件或站内信不要群发同一段话，至少写清你看了哪条视频、合作形式和数据预期。如果频道最近 3 个月没有更新，直接移到观察名单，不要浪费建联时间；报价和合作形式要提前问清，避免谈到最后才发现预算不匹配，并记录每次沟通时间，方便跟进，并标注来源。</p>
+<h2>十二、三个常见误区</h2><p>只看粉丝量、不看播放和互动；只看频道简介、不看最近内容；把邮箱数量当成建联成功率。建议先用小样本测试回复率，再决定是否扩大名单。</p>
+<h2>十三、一份可复用的检查清单</h2><ol><li>目标：市场、品类、预算。</li><li>名单：频道、粉丝、播放、国家、联系方式。</li><li>质量：去重、核对最近内容、标记停更。</li><li>建联：分组、个性化开场、记录回复。</li><li>复盘：回复率、报价、合作结果。</li></ol><p>每轮建联后把结果回写到表里，下一轮才知道哪些筛选条件有效。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/youtube-comments.html">YouTube 评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/pgy-influencers.html">蒲公英达人筛选怎么做？</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">YouTube · 红人筛选</div><h2 class="post-title-en">YouTube 红人怎么筛选？从关键词、地区到联系方式</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。</p>
+<h2>1. What YouTube Creator Data Is For</h2><p>Common uses include outreach in target markets, building a creator database with contact details, and studying competitor channels. Define the market and category before setting filters.</p>
+<h2>2. Set the Filters</h2><ol><li>Keywords: product, scenario, and category terms in English and local languages.</li><li>Country/region: match the target market.</li><li>Followers: tiers that fit the budget, not only top creators.</li><li>Activity: recent uploads, video count, and total views.</li></ol><p>More specific filters mean less manual review; compare two or three filter sets first.</p>
+<h2>3. Collection Steps</h2><figure><img src="/blog/images/ytu-filter.jpg" width="1200" height="263" loading="lazy" alt="YouTube creator filters"><figcaption>Figure 1: set keyword, country, and follower range.</figcaption></figure><ol><li>Enter keyword, country/region, and follower range.</li><li>Configure a YouTube Data API key (multiple keys are supported).</li><li>Set pages and the output folder, then start.</li><li>Run contact enrichment for shortlisted channels.</li></ol>
+<h2>4. Fields to Keep</h2><table><thead><tr><th>Field</th><th>Meaning</th><th>Use</th></tr></thead><tbody><tr><td>Channel name / ID</td><td>Identifier</td><td>Deduplication, database</td></tr><tr><td>Channel URL</td><td>Profile</td><td>Manual review</td></tr><tr><td>Country</td><td>Channel origin</td><td>Market fit</td></tr><tr><td>Followers / videos</td><td>Channel size</td><td>Tiering</td></tr><tr><td>Total views</td><td>Cumulative plays</td><td>Performance reference</td></tr><tr><td>Join date</td><td>Creation date</td><td>Stability</td></tr><tr><td>Social links</td><td>Telegram, X, Instagram, etc.</td><td>Outreach paths</td></tr><tr><td>Email</td><td>Public contact</td><td>Outreach</td></tr></tbody></table><p>Read followers and total views together; followers without views usually mean limited campaign value.</p>
+<h2>5. Check and Build the Database</h2><figure><img src="/blog/images/ytu-result.jpg" width="1200" height="481" loading="lazy" alt="YouTube creator export"><figcaption>Figure 2: the exported table can be filtered by country, followers, and keyword.</figcaption></figure><ol><li>Deduplicate by channel ID and keep a raw backup.</li><li>Check country, followers, and email fields.</li><li>Flag inactive, reposting, or poor-fit channels.</li><li>Open sample channels to verify style and audience.</li></ol>
+<h2>6. Common Errors</h2><h3>Few results</h3><p>The keyword or filters may be too narrow; widen them or try another language.</p><h3>Missing email</h3><p>Many channels do not publish an email; use social links as an alternative path.</p><h3>API key quota</h3><p>Each key has a daily quota; the current version supports key rotation.</p><h3>Network timeout</h3><p>Confirm the machine can reach the YouTube API; reduce concurrency and run in batches.</p>
+<h2>7. Compliance</h2><p>Only process public channel data, keep request rates reasonable, and follow YouTube's terms and applicable laws. Use contact details only for legitimate business communication; do not spam or resell lists.</p>
+<h2>8. FAQ</h2><h3>Do I need an API key?</h3><p>Yes, the current version uses the YouTube Data API and supports multiple keys.</p><h3>Can I export emails?</h3><p>Public emails and social links can be enriched; private ones cannot.</p><h3>Can I filter by country?</h3><p>Yes, by the channel's country/region.</p><h3>Does the data update?</h3><p>Followers and video counts change; refresh the database monthly.</p>
+<h2>9. How to Score Channels</h2><p>Use four dimensions: content fit (40%), audience and market fit (25%), activity (20%), and contact availability (15%). Score 1-5, calibrate on 20 samples, and do not decide on follower count alone.</p>
+<h2>10. A Reusable Checklist</h2><ol><li>Goal: market, category, budget.</li><li>Filters: keyword, country, followers, activity.</li><li>Fields: channel, followers, views, country, socials, email.</li><li>Quality: dedupe, verify profiles, flag inactive channels.</li><li>Output: score sheet, shortlist, collection date.</li></ol>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/youtube_user/?utm_source=blog&utm_medium=article&utm_campaign=youtube-influencers" data-track="youtube_user">View the YouTube creator tool →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>11. From List to Outreach</h2><p>Group the list by market, follower tier, and content type, then shortlist 10-20 channels per group. Check the last five videos and comment languages to confirm the audience is in the target market. Personalize each message instead of sending the same template.</p>
+<h2>12. Three Common Mistakes</h2><p>Judging by followers without views or engagement, reading only the channel bio, and treating email count as outreach success. Test a small batch before scaling.</p>
+<h2>13. A Reusable Checklist</h2><ol><li>Goal: market, category, budget.</li><li>List: channel, followers, views, country, contacts.</li><li>Quality: dedupe, check recent content, flag inactive channels.</li><li>Outreach: grouping, personalized opener, reply tracking.</li><li>Review: reply rate, quote, campaign result.</li></ol><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/youtube-comments.html">How to collect YouTube comments</a></li><li><a href="/blog/posts/pgy-influencers.html">How to screen Pugongying creators</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
@@ -131,9 +208,17 @@ var _hmt = _hmt || [];
 </script>
 <script>
 (function(){
-  document.querySelectorAll('.cta a').forEach(function(a){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
     a.addEventListener('click',function(){
-      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script><script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
     });
   });
 })();
