@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="介绍如何从业务问题拆解关键词、管理搜索批次、筛选视频结果并记录数据来源。"><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://mashukui.github.io/blog/posts/douyin-keyword.html">
-<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="抖音关键词采集怎么做？关键词分组与结果筛选"><meta property="og:description" content="介绍如何从业务问题拆解关键词、管理搜索批次、筛选视频结果并记录数据来源。">
-<title>抖音关键词采集怎么做？关键词分组与结果筛选 - 马哥数据采集</title><style>
+<meta name="description" content="从关键词分组、搜索采集、字段核对到结果筛选，附字段表、常见报错和合规提示，适合选题与竞品分析。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/douyin-keyword">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="抖音关键词采集怎么做？从关键词池到作品结果表"><meta property="og:description" content="从关键词分组、搜索采集、字段核对到结果筛选，附字段表、常见报错和合规提示，适合选题与竞品分析。">
+<title>抖音关键词采集怎么做？从关键词池到作品结果表 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
 .language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
 {
@@ -11,10 +11,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "抖音关键词采集怎么做？关键词分组与结果筛选",
-      "description": "介绍如何从业务问题拆解关键词、管理搜索批次、筛选视频结果并记录数据来源。",
-      "datePublished": "2026-11-22",
-      "dateModified": "2026-11-22",
+      "headline": "抖音关键词采集怎么做？从关键词池到作品结果表",
+      "description": "从关键词分组、搜索采集、字段核对到结果筛选，附字段表、常见报错和合规提示，适合选题与竞品分析。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
       "author": {
         "@type": "Person",
         "name": "马哥python说"
@@ -26,9 +26,9 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mashukui.github.io/blog/posts/douyin-keyword.html"
+        "@id": "https://mashukui.github.io/blog/posts/douyin-keyword"
       },
-      "url": "https://mashukui.github.io/blog/posts/douyin-keyword.html",
+      "url": "https://mashukui.github.io/blog/posts/douyin-keyword",
       "inLanguage": "zh-CN"
     },
     {
@@ -49,8 +49,45 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "抖音关键词采集怎么做？关键词分组与结果筛选",
-          "item": "https://mashukui.github.io/blog/posts/douyin-keyword.html"
+          "name": "抖音关键词采集怎么做？从关键词池到作品结果表",
+          "item": "https://mashukui.github.io/blog/posts/douyin-keyword"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "需要准备词表吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议准备。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能采多少页？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "受平台返回范围影响。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能按时间筛选吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "以当前版本为准。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持 Mac 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持。"
+          }
         }
       ]
     }
@@ -59,24 +96,71 @@
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
 <style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
 .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
 </style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
-<main class="article"><div class="lang-zh"><div class="eyebrow">抖音 · 搜索策略</div><h1>抖音关键词采集怎么做？关键词分组与结果筛选</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍如何从业务问题拆解关键词、管理搜索批次、筛选视频结果并记录数据来源。</p><h2>一、把业务问题转成关键词</h2><p>从品牌词、产品词、场景词、问题词、竞品词和活动词六类开始。每组词对应一个研究意图，例如了解产品体验时，场景词和问题词通常比宽泛行业词更有针对性。</p><h2>二、建立关键词表</h2><p>建议字段包括关键词、词组类别、目标意图、添加日期、优先级、搜索批次和备注。为关键词设置统一命名规则，方便后续比较不同批次的结果。</p><h2>三、先小范围试搜</h2><p>每组先选少量代表词，观察返回内容是否相关、是否过于宽泛，以及是否存在同义词。根据结果调整词组，不要只追求搜索词数量。</p><h2>四、筛选结果并记录原因</h2><p>可以按内容相关性、发布时间、账号或互动区间筛选，但每个条件都应服务于研究问题。保留原始搜索词和筛选理由，避免结果表失去来源信息。</p><h2>五、避免重复与偏差</h2><p>多个关键词可能命中同一视频，建议使用稳定的视频链接或标识去重，同时保留该视频命中的全部关键词。不同关键词的结果量不能直接代表真实话题热度，因为排序和推荐机制会影响可见结果。</p><div class="note">搜索结果是平台在特定时间和条件下呈现的样本，不等同于全量内容。报告中应说明采集日期、关键词和筛选范围。</div>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/douyin_one_spider/">查看相关产品 →</a></div><a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en">
-<div class="eyebrow">Douyin · Search Strategy</div><h2 class="post-title-en">Douyin Keyword Research: Grouping and Filtering Search Results</h2><div class="date"><time datetime="2026-11-22">2026-11-22</time> · Mage Data Tools</div><p class="lead">Learn to turn business questions into keyword groups, manage search batches, filter video results, and record data sources.</p>
-<h2>1. Turn Business Questions into Keywords</h2><p>Start with six groups: brand terms, product terms, use-case terms, problem terms, competitor terms, and campaign terms. Each group should serve a research intent. For product-experience research, use-case and problem terms are often more targeted than broad industry terms.</p>
-<h2>2. Maintain a Keyword Sheet</h2><p>Suggested fields include keyword, group, search intent, date added, priority, search batch, and notes. Use consistent naming so results from different batches can be compared.</p>
-<h2>3. Test a Small Search Set First</h2><p>Choose a few representative terms from each group and review relevance, breadth, and synonyms in the results. Refine the groups based on what you find rather than maximizing the number of search terms.</p>
-<h2>4. Filter Results and Record the Reason</h2><p>Filter by content relevance, publication date, creator, or engagement range when those criteria serve the research question. Keep the original search term and selection rationale so the result table retains its provenance.</p>
-<h2>5. Avoid Duplicates and Sampling Bias</h2><p>Multiple keywords may return the same video. Deduplicate by a stable video URL or identifier while retaining all keywords that matched it. Result counts for different keywords do not directly represent topic popularity because ranking and recommendation systems affect what is visible.</p>
-<div class="note">Search results are samples shown by the platform under specific conditions and at a specific time, not a complete census. Document collection dates, keywords, and filtering scope in your report.</div>
-<div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/douyin_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
-<footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<main class="article"><div class="lang-zh"><div class="eyebrow">抖音 · 搜索策略</div><h1>抖音关键词采集怎么做？从关键词池到作品结果表</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从关键词分组、搜索采集、字段核对到结果筛选，附字段表、常见报错和合规提示，适合选题与竞品分析。</p>
+<h2>一、抖音关键词采集能用来做什么</h2><p>关键词搜索结果适合三类任务：选题（哪些话题在起量）、竞品（同行在做什么内容）、投放（哪些视频和创作者值得关注）。它和评论采集不同，先把「词」设计好，比多采几页更重要。</p>
+<h2>二、构建关键词池</h2><ol><li>核心词：产品名、品类名、行业词。</li><li>场景词：使用场景、人群、痛点，例如「通勤」「新手」「平价」。</li><li>长尾词：核心词加修饰词，数量多但单个搜索量小。</li><li>排除词：明显无关的品类和歧义词，减少后续清洗量。</li></ol><p>把词池按主题分组，每组控制在 5–15 个，先小批量验证，再扩展。</p>
+<h2>三、采集步骤</h2><figure><img src="/blog/images/douyin-gui.jpg" width="1200" height="992" loading="lazy" alt="抖音关键词采集界面"><figcaption>图 1：选择关键词采集模块，输入关键词并设置页数。</figcaption></figure><ol><li>打开软件，选择关键词作品采集。</li><li>输入关键词，设置页数和保存目录。</li><li>点击开始，等待结果写入 CSV。</li><li>换下一个关键词重复，或分批导入词表。</li></ol>
+<h2>四、导出字段</h2><table><thead><tr><th>字段</th><th>含义</th><th>用途</th></tr></thead><tbody><tr><td>关键词 / 页码</td><td>来源词与页数</td><td>回溯与分组</td></tr><tr><td>作品标题</td><td>视频标题</td><td>选题与文本分析</td></tr><tr><td>作品链接</td><td>视频地址</td><td>打开原视频核对</td></tr><tr><td>作者昵称 / uid</td><td>创作者信息</td><td>竞品与达人筛选</td></tr><tr><td>作者粉丝数</td><td>账号体量</td><td>分层比较</td></tr><tr><td>发布时间</td><td>作品发布日</td><td>时效性判断</td></tr><tr><td>点赞 / 评论 / 收藏 / 转发</td><td>互动数据</td><td>内容表现参考</td></tr></tbody></table><p>不要只用点赞排序；粉丝量、发布时间和内容形式都会影响表现。</p>
+<h2>五、导出后的检查与清洗</h2><figure><img src="/blog/images/douyin-search.jpg" width="1200" height="563" loading="lazy" alt="抖音关键词搜索结果"><figcaption>图 2：导出后的作品表，可以按关键词、作者和发布时间筛选。</figcaption></figure><ol><li>按作品链接去重，保留原始备份。</li><li>检查标题是否完整、时间格式是否统一。</li><li>标记明显无关、重复搬运和广告内容。</li><li>抽样打开原视频，确认标题与内容一致。</li></ol>
+<h2>六、常见报错与排查</h2><h3>结果很少或为空</h3><p>关键词可能过于狭窄、被限流，或当前页数范围内没有内容；换词、放宽时间范围再试。</p><h3>结果重复</h3><p>多个关键词会搜到同一作品，合并前先按作品链接去重。</p><h3>触发验证码</h3><p>降低频率、分批执行，按软件提示完成验证后再继续。</p><h3>登录失效</h3><p>重新登录并刷新登录态，避免频繁切换账号。</p>
+<h2>七、合规提示</h2><p>只处理公开可见的作品数据，控制频率，遵守平台规则和适用法律；不要采集、传播个人敏感信息，也不要用采集结果做骚扰式营销。</p>
+<h2>八、常见问题</h2><h3>需要准备词表吗？</h3><p>建议准备，一个关键词一个关键词跑，结果更容易归因。</p><h3>能采多少页？</h3><p>受平台返回范围和账号状态影响，先小批量验证。</p><h3>能按时间筛选吗？</h3><p>以当前版本支持为准；导出后可按发布时间列筛选。</p><h3>支持 Mac 吗？</h3><p>支持 Windows 和 macOS。</p>
+<h2>九、怎么判断关键词值不值得继续做</h2><p>看三个信号：结果里是否有稳定的中腰部创作者、互动是否集中在近期、标题是否出现重复的表达套路。三个都弱，说明这个词可能只是「看起来热」；把预算和时间留给能持续产出内容的词。</p>
+<p>最后提醒：关键词结果是样本，不是全量；报告里写清词表、页数和采集日期，结论才可复现。</p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/douyin_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=douyin-keyword" data-track="douyin">查看抖音聚合采集 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「抖音」获取使用说明。</p></div>
+<h2>十、关键词效果怎么复盘</h2><p>同一批词至少跑两次，间隔一周，比较结果数量、作者重合度和互动变化。数量稳定、作者持续产出、互动集中在近期的词，值得长期跟踪；数量忽高忽低、标题高度重复的词，可能只是短期热点。复盘时保留词表、页数和日期，才能判断变化来自内容还是采集口径。</p>
+<h2>十一、三个常见误区</h2><p>只搜一个大词、不看长尾；把点赞绝对值当成内容质量；忽略发布时间，把半年前的作品和本周作品放在一起比较。建议同时看互动率、发布时间和作者体量，再做判断。</p>
+<h2>十二、一份可复用的检查清单</h2><ol><li>词表：核心、场景、长尾、排除词。</li><li>样本：关键词、页数、采集日期。</li><li>字段：标题、链接、作者、粉丝、时间、互动。</li><li>质量：去重、剔除无关、核对原视频。</li><li>输出：值得跟进的词和内容方向。</li></ol><p>清单固定后，每周只换词表，就能看出趋势。</p><p>另外，关键词结果会受账号状态和平台返回范围影响，同一个词在不同时间跑出的数量可能差很多；比较时看趋势和结构，不要只比总数，报告里注明词表、页数和日期。</p><p>如果是给团队看，附上词表和结果截图，减少解释成本；每周固定时间跑一次，趋势才可比。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/kuaishou-comments.html">快手评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/xhs-notes.html">小红书笔记数据怎么采集和整理？</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">抖音 · 搜索策略</div><h2 class="post-title-en">抖音关键词采集怎么做？从关键词池到作品结果表</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从关键词分组、搜索采集、字段核对到结果筛选，附字段表、常见报错和合规提示，适合选题与竞品分析。</p>
+<h2>1. What Keyword Collection Is For</h2><p>Keyword results help with topic discovery, competitor review, and outreach planning. Unlike comment collection, the quality of the keyword set matters more than collecting more pages.</p>
+<h2>2. Build a Keyword Set</h2><ol><li>Core terms: product, category, and industry words.</li><li>Scenario terms: use cases, audiences, pain points.</li><li>Long-tail terms: core words with modifiers.</li><li>Exclusions: irrelevant or ambiguous categories.</li></ol><p>Group terms by theme, keep 5-15 per group, and validate with a small batch first.</p>
+<h2>3. Collection Steps</h2><figure><img src="/blog/images/douyin-gui.jpg" width="1200" height="992" loading="lazy" alt="Douyin keyword collection interface"><figcaption>Figure 1: choose keyword collection and enter the term and page count.</figcaption></figure><ol><li>Open the tool and choose keyword collection.</li><li>Enter a keyword, pages, and output folder.</li><li>Start and wait for the CSV.</li><li>Repeat for the next keyword or run the list in batches.</li></ol>
+<h2>4. Fields to Keep</h2><table><thead><tr><th>Field</th><th>Meaning</th><th>Use</th></tr></thead><tbody><tr><td>Keyword / page</td><td>Source term and page</td><td>Traceability</td></tr><tr><td>Title</td><td>Video title</td><td>Topic analysis</td></tr><tr><td>Video URL</td><td>Video address</td><td>Verify original</td></tr><tr><td>Author / uid</td><td>Creator info</td><td>Competitor and creator screening</td></tr><tr><td>Followers</td><td>Account size</td><td>Tier comparison</td></tr><tr><td>Publish date</td><td>Posting date</td><td>Freshness</td></tr><tr><td>Likes / comments / saves / shares</td><td>Engagement</td><td>Performance reference</td></tr></tbody></table>
+<h2>5. Check and Clean</h2><figure><img src="/blog/images/douyin-search.jpg" width="1200" height="563" loading="lazy" alt="Douyin keyword search results"><figcaption>Figure 2: the exported table can be filtered by keyword, author, and date.</figcaption></figure><ol><li>Deduplicate by video URL and keep a raw backup.</li><li>Check title completeness and date formats.</li><li>Flag irrelevant, reposted, or ad content.</li><li>Open sample videos to confirm title and content match.</li></ol>
+<h2>6. Common Errors</h2><h3>Few or zero results</h3><p>The term may be too narrow or restricted; try another term or a wider date range.</p><h3>Duplicates</h3><p>Different keywords can surface the same video; deduplicate before merging.</p><h3>Captcha</h3><p>Lower the frequency, run in batches, and complete the prompt.</p><h3>Login expires</h3><p>Log in again and refresh the session.</p>
+<h2>7. Compliance</h2><p>Only process public data, keep request rates reasonable, and follow platform rules and applicable laws. Do not collect or share sensitive personal information.</p>
+<h2>8. FAQ</h2><h3>Should I prepare a keyword list?</h3><p>Yes, one term at a time makes attribution easier.</p><h3>How many pages can I collect?</h3><p>It depends on platform visibility and account status; validate with a small batch first.</p><h3>Can I filter by date?</h3><p>It depends on the current version; the export includes a publish date column.</p><h3>Does it support macOS?</h3><p>Yes, Windows and macOS builds are available.</p>
+<h2>9. Is a Keyword Worth Pursuing?</h2><p>Look for stable mid-tier creators, recent engagement, and repeated title patterns. If all three are weak, the term may look hot but be hard to monetize. Report the keyword list, page count, and collection date so results are reproducible.</p>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/douyin_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=douyin-keyword" data-track="douyin">View the Douyin tool →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>10. Reviewing Keyword Performance</h2><p>Run the same keyword set at least twice, a week apart, and compare result counts, author overlap, and engagement. Stable counts, recurring creators, and recent engagement suggest a term worth tracking; volatile counts and repetitive titles may be a short-term spike.</p>
+<h2>11. Three Common Mistakes</h2><p>Searching only one broad term, treating absolute likes as content quality, and mixing old and recent videos. Compare engagement rate, publish date, and account size together.</p>
+<h2>12. A Reusable Checklist</h2><ol><li>Keyword set: core, scenario, long-tail, exclusions.</li><li>Sample: keywords, pages, collection date.</li><li>Fields: title, URL, author, followers, date, engagement.</li><li>Quality: dedupe, remove irrelevant, verify videos.</li><li>Output: terms and topics worth following.</li></ol><p>Results also depend on account status and platform visibility; the same term can return very different counts over time. Compare structure and trends, not totals alone, and record the keyword list, pages, and date.</p><p>For team reports, attach the keyword list and screenshots; run at a fixed time each week so trends are comparable.</p><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/douyin-comments.html">How to collect Douyin comments</a></li><li><a href="/blog/posts/kuaishou-comments.html">How to collect Kuaishou comments</a></li><li><a href="/blog/posts/xhs-notes.html">How to collect Xiaohongshu notes</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
@@ -123,9 +207,17 @@ var _hmt = _hmt || [];
 </script>
 <script>
 (function(){
-  document.querySelectorAll('.cta a').forEach(function(a){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
     a.addEventListener('click',function(){
-      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script><script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
     });
   });
 })();

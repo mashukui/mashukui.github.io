@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="从帖子清单、评论采集、字段核对到主题与情绪分析，附字段表、常见报错和合规提示。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/weibo-comments">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="微博评论数据怎么采集和整理？从帖子链接到评论分析表"><meta property="og:description" content="从帖子清单、评论采集、字段核对到主题与情绪分析，附字段表、常见报错和合规提示。">
+<title>微博评论数据怎么采集和整理？从帖子链接到评论分析表 - 马哥数据采集</title><style>
+:root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
+.language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "微博评论数据怎么采集和整理？从帖子链接到评论分析表",
+      "description": "从帖子清单、评论采集、字段核对到主题与情绪分析，附字段表、常见报错和合规提示。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "author": {
+        "@type": "Person",
+        "name": "马哥python说"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "马哥数据采集",
+        "url": "https://mashukui.github.io/"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mashukui.github.io/blog/posts/weibo-comments"
+      },
+      "url": "https://mashukui.github.io/blog/posts/weibo-comments",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://mashukui.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "技术博客",
+          "item": "https://mashukui.github.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "微博评论数据怎么采集和整理？从帖子链接到评论分析表",
+          "item": "https://mashukui.github.io/blog/posts/weibo-comments"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "能按博文链接采集吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能采二级评论吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "以当前版本为准，可用评论级别区分。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "能直接看情绪吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "导出原文，需另行标注。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持 Mac 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支持。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+</head><body>
+<header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
+<main class="article"><div class="lang-zh"><div class="eyebrow">微博 · 评论分析</div><h1>微博评论数据怎么采集和整理？从帖子链接到评论分析表</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从帖子清单、评论采集、字段核对到主题与情绪分析，附字段表、常见报错和合规提示。</p>
+<h2>一、微博评论数据能用来做什么</h2><p>评论比转发更接近真实反馈：用户会在这里讲具体问题、表达态度、补充信息。常见用途有三类：舆情反馈（某条博文下的真实声音）、内容复盘（哪类表达引发讨论）、用户研究（评论者的关注点和语言习惯）。</p>
+<h2>二、准备帖子清单</h2><ol><li>按关键词、博主主页或单条博文链接收集帖子，记录来源和采集日期。</li><li>确认博文公开可访问、评论区开放；删除或仅部分可见的博文会返回空结果。</li><li>按事件阶段分时间段采集，避免把不同时期的数据混在一起。</li></ol>
+<h2>三、采集步骤</h2><figure><img src="/blog/images/weibo-gui.jpg" width="1200" height="1058" loading="lazy" alt="微博数据采集界面"><figcaption>图 1：选择评论采集模块，填写博文链接或关键词。</figcaption></figure><ol><li>打开软件，选择评论采集。</li><li>粘贴博文链接，或先按关键词搜索博文。</li><li>设置页数和保存目录，开始执行。</li><li>结束后查看 CSV 和 logs 日志。</li></ol>
+<h2>四、导出字段</h2><table><thead><tr><th>字段</th><th>含义</th><th>用途</th></tr></thead><tbody><tr><td>博文链接</td><td>评论所属博文</td><td>回溯来源</td></tr><tr><td>评论者昵称 / id</td><td>用户标识</td><td>去重、画像</td></tr><tr><td>评论内容</td><td>评论文本</td><td>主题与情绪分析</td></tr><tr><td>评论时间</td><td>发布时间</td><td>趋势分析</td></tr><tr><td>点赞数</td><td>评论互动</td><td>热度参考</td></tr><tr><td>评论级别</td><td>一级评论或回复</td><td>区分主评论与回复</td></tr><tr><td>IP 属地</td><td>评论者地域（如导出含）</td><td>地域分布</td></tr></tbody></table><p>字段齐全比条数重要；导出后先抽查 10 条，确认评论和博文对应。</p>
+<h2>五、导出后的检查与清洗</h2><figure><img src="/blog/images/weibo-comments-result.jpg" width="1200" height="635" loading="lazy" alt="微博评论导出结果"><figcaption>图 2：导出后的评论表，可以按博文、时间和关键词筛选。</figcaption></figure><ol><li>删除重复评论，保留原始备份。</li><li>检查空值、乱码、时间格式和字段错位。</li><li>标记广告、无关内容和明显的水军话术。</li><li>抽样打开原博文，核对评论上下文。</li></ol>
+<h2>六、常见报错与排查</h2><h3>评论为空</h3><p>评论区可能关闭、博文被删除或仅部分可见；先确认博文能正常打开。</p><h3>数量比页面少</h3><p>平台只返回部分可见评论，翻页深度和账号状态都会影响结果，以导出文件为准。</p><h3>导出乱码</h3><p>用 UTF-8 打开 CSV；Excel 双击乱码时改用「数据 → 从文本/CSV」导入。</p><h3>登录失效</h3><p>重新登录并刷新登录态，避免频繁切换账号。</p>
+<h2>七、合规提示</h2><p>只处理公开可见的评论，控制采集频率，遵守平台规则和适用法律。评论可能包含个人信息和未经证实的说法，引用时保留原文链接，避免断章取义。</p>
+<h2>八、常见问题</h2><h3>能按博文链接采集吗？</h3><p>可以，单条博文链接即可采集其公开评论。</p><h3>能采二级评论吗？</h3><p>以当前版本支持为准；导出后可用「评论级别」字段区分主评论和回复。</p><h3>能直接看情绪吗？</h3><p>导出的是原始文本，情绪需要另行标注或借助分析工具。</p><h3>支持 Mac 吗？</h3><p>支持 Windows 和 macOS。</p>
+<h2>九、样本够不够，怎么判断</h2><p>不看总数，看是否覆盖主要博文、时间阶段和账号类型；如果只有大 V 评论，缺少普通用户，结论会偏。保留「未采用样本」清单，写明排除原因；样本不足时缩小结论范围，不要用少量数据外推整体。</p>
+<p>最后提醒：评论分析的价值在原文和上下文，报告里附 2–3 条代表性评论，比只给情绪比例更可信。</p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/weibo_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=weibo-comments" data-track="weibo">查看微博聚合采集 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「微博」获取使用说明。</p></div>
+<h2>十、主题与情绪怎么标</h2><p>先做主题分类：产品体验、价格、售后、物流、竞品对比、无关内容；再标情绪：正向、中性、负向、反讽。每条评论只给一个主标签，避免多重标签导致统计失真。标注前先看 50 条样本，统一口径，再批量处理；不确定的放进「待复核」，不要硬标。</p>
+<h2>十一、三个常见误区</h2><p>只看评论总数、不看博文和时间分布；把一条高赞评论当成整体态度；忽略水军和营销号。报告里应给出样本量、时间窗口和代表性原文，避免用单条评论下结论。</p>
+<h2>十二、一份可复用的检查清单</h2><ol><li>目标：舆情、复盘还是用户研究。</li><li>样本：博文链接、时间范围、评论层级。</li><li>字段：评论者、内容、时间、点赞、属地。</li><li>质量：去重、抽样、标记广告。</li><li>输出：主题分布、情绪比例、原文示例。</li></ol><p>清单固定后，每次只改样本范围，结果才可横向对比。</p><p>另外，评论分析不要脱离博文：同一条评论在不同博文下的含义可能不同，报告里要带原文链接和上下文；如果是危机事件，按小时级更新，常规监测按天或周即可。样本少时，先补样本再下结论。</p><p>如果评论量很大，先按点赞或时间抽样，再决定是否全量分析；报告中保留原文链接，方便复核。样本不足时，不要硬下结论，先补样本；结论要留有余地。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/weibo-keyword.html">微博舆情数据怎么整理？</a></li><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">微博 · 评论分析</div><h2 class="post-title-en">微博评论数据怎么采集和整理？从帖子链接到评论分析表</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从帖子清单、评论采集、字段核对到主题与情绪分析，附字段表、常见报错和合规提示。</p>
+<h2>1. What Weibo Comment Data Is For</h2><p>Comments are closer to real feedback than reposts: users explain problems, express attitudes, and add context. Common uses include public-opinion review, content retrospectives, and user research.</p>
+<h2>2. Prepare the Post List</h2><ol><li>Collect posts by keyword, profile, or individual URL, and record source and date.</li><li>Confirm posts are public and comments are open.</li><li>Collect by event stage to avoid mixing different periods.</li></ol>
+<h2>3. Collection Steps</h2><figure><img src="/blog/images/weibo-gui.jpg" width="1200" height="1058" loading="lazy" alt="Weibo data collection interface"><figcaption>Figure 1: choose the comment module and enter a post URL or keyword.</figcaption></figure><ol><li>Open the tool and choose comment collection.</li><li>Paste a post URL or search by keyword first.</li><li>Set pages and the output folder, then start.</li><li>Check the CSV and logs when it finishes.</li></ol>
+<h2>4. Fields to Keep</h2><table><thead><tr><th>Field</th><th>Meaning</th><th>Use</th></tr></thead><tbody><tr><td>Post URL</td><td>Source post</td><td>Traceability</td></tr><tr><td>Commenter name / ID</td><td>User identifier</td><td>Deduplication, profiling</td></tr><tr><td>Comment text</td><td>The comment</td><td>Themes and sentiment</td></tr><tr><td>Comment time</td><td>Publish time</td><td>Trend analysis</td></tr><tr><td>Likes</td><td>Engagement</td><td>Heat reference</td></tr><tr><td>Comment level</td><td>Top-level or reply</td><td>Separate replies</td></tr><tr><td>IP location</td><td>Region, if exported</td><td>Regional distribution</td></tr></tbody></table>
+<h2>5. Check and Clean</h2><figure><img src="/blog/images/weibo-comments-result.jpg" width="1200" height="635" loading="lazy" alt="Weibo comment export"><figcaption>Figure 2: the exported table can be filtered by post, date, and keyword.</figcaption></figure><ol><li>Remove duplicates and keep a raw backup.</li><li>Check empty values, encoding, dates, and field alignment.</li><li>Flag ads, irrelevant content, and coordinated phrasing.</li><li>Review a sample against the original posts.</li></ol>
+<h2>6. Common Errors</h2><h3>No comments</h3><p>The comment section may be closed, the post deleted, or only partly visible.</p><h3>Fewer comments than the page shows</h3><p>Only part of the comment set may be exposed; trust the export.</p><h3>Garbled CSV</h3><p>Open it as UTF-8, or import it through Excel's From Text/CSV.</p><h3>Login expires</h3><p>Log in again and refresh the session.</p>
+<h2>7. Compliance</h2><p>Only process public comments, keep request rates reasonable, and follow platform rules and applicable laws. Keep original links when quoting.</p>
+<h2>8. FAQ</h2><h3>Can I collect by post URL?</h3><p>Yes, a single public post URL is enough.</p><h3>Can I collect replies?</h3><p>It depends on the current version; use the comment-level field to separate replies.</p><h3>Does it analyze sentiment?</h3><p>It exports raw text; sentiment requires separate tagging or tools.</p><h3>Does it support macOS?</h3><p>Yes, Windows and macOS builds are available.</p>
+<h2>9. Is the Sample Enough?</h2><p>Check coverage across posts, dates, and account types, not just row count. Keep an excluded-records list and narrow the conclusion when the sample is thin.</p>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/weibo_one_spider/?utm_source=blog&utm_medium=article&utm_campaign=weibo-comments" data-track="weibo">View the Weibo tool →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>10. Tagging Themes and Sentiment</h2><p>Classify themes first: product experience, price, after-sales, delivery, competitor comparison, irrelevant. Then tag sentiment: positive, neutral, negative, sarcasm. One primary tag per comment, calibrate on 50 samples, and park uncertain cases for review.</p>
+<h2>11. Three Common Mistakes</h2><p>Looking only at total comments, treating one popular comment as the overall attitude, and ignoring coordinated accounts. Report sample size, time window, and representative quotes.</p>
+<h2>12. A Reusable Checklist</h2><ol><li>Goal: public opinion, retrospective, or user research.</li><li>Sample: post URLs, date range, comment level.</li><li>Fields: commenter, text, time, likes, location.</li><li>Quality: dedupe, spot-check, flag ads.</li><li>Output: theme distribution, sentiment share, quotes.</li></ol><p>Do not detach comments from their posts: the same sentence can mean different things under different posts. Include links and context, and update hourly during a crisis, daily or weekly otherwise.</p><p>For large volumes, sample by likes or time before deciding on a full analysis, and keep original links in the report.</p><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/weibo-keyword.html">How to organize Weibo public-opinion data</a></li><li><a href="/blog/posts/douyin-comments.html">How to collect Douyin comments</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+(function(){
+  var buttons=document.querySelectorAll('[data-language]');
+  var zh=document.querySelector('.lang-zh');
+  var en=document.querySelector('.lang-en');
+  var titleZh=document.querySelector('.lang-zh h1');
+  var titleEn=document.querySelector('.lang-en .post-title-en');
+  var desc=document.querySelector('meta[name="description"]');
+  var ogTitle=document.querySelector('meta[property="og:title"]');
+  var ogDesc=document.querySelector('meta[property="og:description"]');
+  var navLinks=document.querySelectorAll('.links a[data-zh]');
+  var originalTitle=titleZh?titleZh.textContent+' - 马哥数据采集':document.title;
+  var originalDesc=desc?desc.getAttribute('content'):'';
+  var originalOgDesc=ogDesc?ogDesc.getAttribute('content'):originalDesc;
+  function setLanguage(value){
+    var lang=value==='en'?'en':'zh-CN';
+    document.documentElement.lang=lang;
+    buttons.forEach(function(button){button.setAttribute('aria-pressed',String(button.getAttribute('data-language')===lang));});
+    navLinks.forEach(function(link){link.textContent=lang==='en'?link.getAttribute('data-en'):link.getAttribute('data-zh');});
+    if(lang==='en'){
+      document.title=(titleEn?titleEn.textContent:'Article')+' - Mage Data Tools';
+      if(desc)desc.setAttribute('content',titleEn?titleEn.textContent+'. Practical guidance from Mage Data Tools.':'');
+      if(ogTitle)ogTitle.setAttribute('content',titleEn?titleEn.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',desc?desc.getAttribute('content'):'');
+    }else{
+      document.title=originalTitle;
+      if(desc)desc.setAttribute('content',originalDesc);
+      if(ogTitle)ogTitle.setAttribute('content',titleZh?titleZh.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',originalOgDesc);
+    }
+    try{localStorage.setItem('mashukui-home-language',lang);}catch(error){}
+  }
+  buttons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.getAttribute('data-language'));});});
+  var saved='zh-CN';try{saved=localStorage.getItem('mashukui-home-language')||'zh-CN';}catch(error){}
+  setLanguage(saved);
+})();
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?243b5a814dfe16a3873817e8afb93de6";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script><script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script></body></html>
