@@ -107,7 +107,7 @@
 .related ul{margin:0;padding-left:20px}
 .related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#eee}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
 .cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
@@ -124,7 +124,7 @@
 .related ul{margin:0;padding-left:20px}
 .related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#eee}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
 .cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
@@ -146,7 +146,7 @@
 <h2>十、把评论变成结论</h2><p>先按作品和时间分组，找讨论量突然上升的节点；再按主题归类，比如「价格」「口感」「物流」「售后」，统计每类占比；最后抽取每类高赞评论人工复核，确认标签没有跑偏。结论要附原文示例，避免只给一个比例；跨平台对比时，先统一字段和清洗规则，再比较趋势。</p>
 <h2>十一、三个常见误区</h2><p>只看条数、不看字段是否齐全；用一条高赞评论代表整体；忽略采集日期，把不同时间的数据混在一起。这三个问题都会让结论失真，建议在清洗阶段就把口径写清楚，并在报告里注明样本范围。</p>
 <h2>十二、一份可复用的检查清单</h2><ol><li>目标：这次要回答什么问题。</li><li>样本：作品清单、关键词、时间范围。</li><li>字段：作品、评论者、内容、时间、互动。</li><li>质量：去重、抽查、记录清洗规则。</li><li>输出：结论、原文示例、数据版本。</li></ol><p>清单不用复杂，但每一项都要有人负责；下次复用同一份清单，数据才可比。</p><p>另外，评论数据要定期更新：同一批作品隔一周再采一次，比较主题和情绪变化，比单次快照更有价值；如果平台规则或账号状态变化，先记录再分析。报告里注明采集日期和样本范围，读者才知道结论的边界。</p><p>如果要做长期跟踪，建议固定同一批作品和字段，减少口径变化；报告里附 2–3 条代表性评论，结论更容易被理解。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/weibo-comments.html">微博评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li></ul></div>
-<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">快手 · 实战教程</div><h2 class="post-title-en">快手评论数据怎么采集和整理？从作品链接到结构化表格</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从确定选题、准备作品链接，到评论采集、字段核对、清洗分析与常见报错，附字段表和合规提示。</p>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><img class="author-avatar" src="/blog/images/avatar.jpg" alt="马哥python说" width="44" height="44" loading="lazy"><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">快手 · 实战教程</div><h2 class="post-title-en">快手评论数据怎么采集和整理？从作品链接到结构化表格</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从确定选题、准备作品链接，到评论采集、字段核对、清洗分析与常见报错，附字段表和合规提示。</p>
 <h2>1. What Kuaishou Comment Data Is For</h2><p>Comments support idea validation, public-opinion review, and lead discovery. Each goal needs a different video scope and field set, so define the goal first.</p>
 <h2>2. Prepare the Video List</h2><ol><li>Collect videos by keyword, creator profile, or individual URL, and record the source and date.</li><li>Confirm the videos are public and comments are open.</li><li>Collect in batches to avoid interruptions.</li></ol>
 <h2>3. Collection Steps</h2><figure><img src="/blog/images/ks-gui.jpg" width="1200" height="981" loading="lazy" alt="Kuaishou comment collection interface"><figcaption>Figure 1: choose the comment module and enter a video URL or keyword.</figcaption></figure><ol><li>Open the tool and choose comment collection.</li><li>Paste a video URL or search by keyword.</li><li>Set pages and the output folder, then start.</li><li>Check the CSV and logs when it finishes.</li></ol>
@@ -160,7 +160,7 @@
 <h2>10. From Comments to Conclusions</h2><p>Group by video and date, find spikes, tag themes such as price, taste, delivery, and after-sales, then review top comments in each theme. Attach original examples and unify fields before cross-platform comparisons.</p>
 <h2>11. Three Common Mistakes</h2><p>Counting rows without checking fields, letting one popular comment represent the whole audience, and mixing different dates. Document the rules and the sample scope.</p>
 <h2>12. A Reusable Checklist</h2><ol><li>Goal: what question to answer.</li><li>Sample: video list, keywords, date range.</li><li>Fields: video, commenter, text, time, engagement.</li><li>Quality: dedupe, spot-check, document cleaning rules.</li><li>Output: conclusion, examples, data version.</li></ol><p>Refresh the data regularly: collect the same videos a week later and compare themes and sentiment. Record the date and sample scope in the report.</p><p>For long-term tracking, keep the same videos and fields, and include two or three representative comments in the report.</p><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/douyin-comments.html">How to collect Douyin comments</a></li><li><a href="/blog/posts/weibo-comments.html">How to collect Weibo comments</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li></ul></div>
-<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><img class="author-avatar" src="/blog/images/avatar.jpg" alt="Mage" width="44" height="44" loading="lazy"><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');

@@ -107,7 +107,7 @@
 .related ul{margin:0;padding-left:20px}
 .related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#eee}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
 .cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
@@ -124,7 +124,7 @@
 .related ul{margin:0;padding-left:20px}
 .related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#eee}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
 .cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
@@ -146,7 +146,7 @@
 <h2>十一、三个常见误区</h2><p>先清洗再备份，出错无法回退；把空值直接删掉，导致样本偏差；把所有字段都设成文本，后面没法求和和透视。建议先备份、先标记后删除，只对 id、编号类字段用文本格式；公式和透视表尽量基于原始列，不要反复复制粘贴。</p>
 <h2>十二、清洗日志怎么写</h2><p>记录四件事：数据来源、清洗步骤、排除规则、输出文件版本。下次复用或交接时，别人能看懂你为什么删了某条数据；出现争议时，也能快速定位到具体批次。</p>
 <h2>十三、一份可复用的检查清单</h2><ol><li>原始文件已备份。</li><li>编码、列名、日期格式已统一。</li><li>去重键已确定。</li><li>空值和异常已标记。</li><li>已抽样回到原文核对。</li><li>报告注明数据范围和采集日期。</li></ol><p>把清单贴在模板第一行，每次照着做，能省掉大部分返工；规则变了，记得同步更新日志和模板。另外，模板不必追求复杂：能稳定跑完、别人看得懂，比堆满公式更重要；每周花 10 分钟复盘一次，比月底补一周的数据更省力，也更容易坚持下去。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/weibo-keyword.html">微博舆情数据怎么整理？</a></li></ul></div>
-<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">方法与工具 · Excel 自动化</div><h2 class="post-title-en">Excel 自动化：把采集数据整理成周报</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。</p>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><img class="author-avatar" src="/blog/images/avatar.jpg" alt="马哥python说" width="44" height="44" loading="lazy"><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">方法与工具 · Excel 自动化</div><h2 class="post-title-en">Excel 自动化：把采集数据整理成周报</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。</p>
 <h2>1. Why Use Excel for Collected Data</h2><p>Collection tools usually export CSV: one row per record with fixed columns. For most research, public-opinion, and operations tasks, filtering, deduplication, pivot tables, and charts are enough in Excel or WPS. Move to Python when the data or cleaning rules outgrow a spreadsheet.</p>
 <h2>2. Fix Garbled CSV</h2><p>Double-clicking a CSV often uses the local encoding and garbles Chinese. Use Data → From Text/CSV → choose the file → Encoding: UTF-8 → Load. Avoid renaming the extension or re-saving in Notepad.</p>
 <h2>3. Five Cleaning Steps</h2><ol><li>Back up the raw file and work on a copy.</li><li>Deduplicate by comment ID, video URL, or URL plus time.</li><li>Flag empty and abnormal values instead of deleting them.</li><li>Normalize dates to YYYY-MM-DD for sorting and pivots.</li><li>Spot-check ten records against the original source.</li></ol><figure><img src="/blog/images/weibo-comments-result.jpg" width="1200" height="635" loading="lazy" alt="Collected data opened in Excel"><figcaption>Figure 1: check column names, data types, and empty values before cleaning.</figcaption></figure>
@@ -161,7 +161,7 @@
 <h2>11. Three Common Mistakes</h2><p>Cleaning before backing up, deleting empty values outright, and formatting every column as text. Back up first, flag before deleting, and use text format only for IDs and codes.</p>
 <h2>12. Keep a Cleaning Log</h2><p>Record the source, cleaning steps, exclusion rules, and output version so the next person can see why a record was removed and which batch it came from.</p>
 <h2>13. A Reusable Checklist</h2><ol><li>Raw file backed up.</li><li>Encoding, column names, and dates unified.</li><li>Deduplication keys defined.</li><li>Empty and abnormal values flagged.</li><li>Sample verified against the source.</li><li>Report states data scope and collection date.</li></ol><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li><li><a href="/blog/posts/douyin-comments.html">How to collect Douyin comments</a></li><li><a href="/blog/posts/weibo-keyword.html">How to organize Weibo public-opinion data</a></li></ul></div>
-<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><img class="author-avatar" src="/blog/images/avatar.jpg" alt="Mage" width="44" height="44" loading="lazy"><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');

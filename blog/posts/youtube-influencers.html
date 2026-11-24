@@ -107,7 +107,7 @@
 .related ul{margin:0;padding-left:20px}
 .related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#eee}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
 .cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
@@ -124,7 +124,7 @@
 .related ul{margin:0;padding-left:20px}
 .related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:#eee}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
 .cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
@@ -146,7 +146,7 @@
 <h2>十一、从名单到建联</h2><p>名单出来后，先按市场、粉丝档位和内容类型分组，每组挑 10–20 个重点频道；再核对最近 5 条视频的主题和评论区语言，确认受众确实在目标市场。邮件或站内信不要群发同一段话，至少写清你看了哪条视频、合作形式和数据预期。如果频道最近 3 个月没有更新，直接移到观察名单，不要浪费建联时间；报价和合作形式要提前问清，避免谈到最后才发现预算不匹配，并记录每次沟通时间，方便跟进，并标注来源。</p>
 <h2>十二、三个常见误区</h2><p>只看粉丝量、不看播放和互动；只看频道简介、不看最近内容；把邮箱数量当成建联成功率。建议先用小样本测试回复率，再决定是否扩大名单。</p>
 <h2>十三、一份可复用的检查清单</h2><ol><li>目标：市场、品类、预算。</li><li>名单：频道、粉丝、播放、国家、联系方式。</li><li>质量：去重、核对最近内容、标记停更。</li><li>建联：分组、个性化开场、记录回复。</li><li>复盘：回复率、报价、合作结果。</li></ol><p>每轮建联后把结果回写到表里，下一轮才知道哪些筛选条件有效。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/youtube-comments.html">YouTube 评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/pgy-influencers.html">蒲公英达人筛选怎么做？</a></li><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li></ul></div>
-<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">YouTube · 红人筛选</div><h2 class="post-title-en">YouTube 红人怎么筛选？从关键词、地区到联系方式</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。</p>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><img class="author-avatar" src="/blog/images/avatar.jpg" alt="马哥python说" width="44" height="44" loading="lazy"><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">YouTube · 红人筛选</div><h2 class="post-title-en">YouTube 红人怎么筛选？从关键词、地区到联系方式</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从筛选维度、频道采集、粉丝与联系方式核对到建库评分，附字段表、常见报错和合规提示。</p>
 <h2>1. What YouTube Creator Data Is For</h2><p>Common uses include outreach in target markets, building a creator database with contact details, and studying competitor channels. Define the market and category before setting filters.</p>
 <h2>2. Set the Filters</h2><ol><li>Keywords: product, scenario, and category terms in English and local languages.</li><li>Country/region: match the target market.</li><li>Followers: tiers that fit the budget, not only top creators.</li><li>Activity: recent uploads, video count, and total views.</li></ol><p>More specific filters mean less manual review; compare two or three filter sets first.</p>
 <h2>3. Collection Steps</h2><figure><img src="/blog/images/ytu-filter.jpg" width="1200" height="263" loading="lazy" alt="YouTube creator filters"><figcaption>Figure 1: set keyword, country, and follower range.</figcaption></figure><ol><li>Enter keyword, country/region, and follower range.</li><li>Configure a YouTube Data API key (multiple keys are supported).</li><li>Set pages and the output folder, then start.</li><li>Run contact enrichment for shortlisted channels.</li></ol>
@@ -161,7 +161,7 @@
 <h2>11. From List to Outreach</h2><p>Group the list by market, follower tier, and content type, then shortlist 10-20 channels per group. Check the last five videos and comment languages to confirm the audience is in the target market. Personalize each message instead of sending the same template.</p>
 <h2>12. Three Common Mistakes</h2><p>Judging by followers without views or engagement, reading only the channel bio, and treating email count as outreach success. Test a small batch before scaling.</p>
 <h2>13. A Reusable Checklist</h2><ol><li>Goal: market, category, budget.</li><li>List: channel, followers, views, country, contacts.</li><li>Quality: dedupe, check recent content, flag inactive channels.</li><li>Outreach: grouping, personalized opener, reply tracking.</li><li>Review: reply rate, quote, campaign result.</li></ol><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/youtube-comments.html">How to collect YouTube comments</a></li><li><a href="/blog/posts/pgy-influencers.html">How to screen Pugongying creators</a></li><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li></ul></div>
-<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><img class="author-avatar" src="/blog/images/avatar.jpg" alt="Mage" width="44" height="44" loading="lazy"><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
 (function(){
   var buttons=document.querySelectorAll('[data-language]');
   var zh=document.querySelector('.lang-zh');
