@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="介绍 CSV 导入、字段规范化、筛选透视、重复检查和自动化报表的基础流程。"><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://mashukui.github.io/blog/posts/excel-automation.html">
-<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="Excel 自动化整理采集数据：从 CSV 到可复用报表"><meta property="og:description" content="介绍 CSV 导入、字段规范化、筛选透视、重复检查和自动化报表的基础流程。">
-<title>Excel 自动化整理采集数据：从 CSV 到可复用报表 - 马哥数据采集</title><style>
+<meta name="description" content="从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。"><meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mashukui.github.io/blog/posts/excel-automation">
+<meta property="og:type" content="article"><meta property="og:site_name" content="马哥数据采集"><meta property="og:title" content="Excel 自动化：把采集数据整理成周报"><meta property="og:description" content="从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。">
+<title>Excel 自动化：把采集数据整理成周报 - 马哥数据采集</title><style>
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18191d;--muted:#646a75;--line:#dfe2e8;--accent:#c92f52}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.header{background:#ffffffeb;border-bottom:1px solid var(--line)}.nav{max-width:900px;margin:auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}.nav a{color:inherit;text-decoration:none;font-weight:750}.links{display:flex;gap:18px;color:var(--muted);font-size:14px}.article{max-width:820px;margin:42px auto 72px;padding:46px 56px;background:var(--paper);border:1px solid var(--line);border-radius:18px}.eyebrow{color:var(--accent);font-weight:800;font-size:13px}.article h1{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}.date{color:var(--muted);font-size:13px}.lead{font-size:18px;color:var(--muted);padding:16px 0;border-bottom:1px solid var(--line)}h2{font-size:24px;margin:32px 0 10px}h3{font-size:19px;margin:22px 0 8px}p{margin:12px 0}li{margin:7px 0}a{color:var(--accent)}.note{background:#fbf1f4;border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 10px 10px 0}.cta{margin-top:36px;padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafafb}.cta a,.back{font-weight:800;text-decoration:none}.back{display:inline-block;margin-top:24px}.footer{text-align:center;color:var(--muted);font-size:13px;padding:22px;border-top:1px solid var(--line)}@media(max-width:600px){.article{margin:18px 12px 40px;padding:26px 20px}.nav{padding:14px 16px}.article h1{font-size:31px}}
 .language-switch{display:inline-flex;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--paper);flex:0 0 auto}.language-switch button{min-width:38px;min-height:30px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:750;cursor:pointer}.language-switch button[aria-pressed="true"]{background:var(--ink);color:white}.lang-en{display:none}html[lang="en"] .lang-zh{display:none}html[lang="en"] .lang-en{display:block}.links{align-items:center;flex-wrap:wrap}.language-switch{margin-left:2px}@media(max-width:520px){.nav{gap:12px}.links{gap:10px;font-size:12px}.language-switch button{min-width:34px}}</style><script type="application/ld+json">
 {
@@ -11,10 +11,10 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "Excel 自动化整理采集数据：从 CSV 到可复用报表",
-      "description": "介绍 CSV 导入、字段规范化、筛选透视、重复检查和自动化报表的基础流程。",
-      "datePublished": "2026-11-22",
-      "dateModified": "2026-11-22",
+      "headline": "Excel 自动化：把采集数据整理成周报",
+      "description": "从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
       "author": {
         "@type": "Person",
         "name": "马哥python说"
@@ -26,9 +26,9 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://mashukui.github.io/blog/posts/excel-automation.html"
+        "@id": "https://mashukui.github.io/blog/posts/excel-automation"
       },
-      "url": "https://mashukui.github.io/blog/posts/excel-automation.html",
+      "url": "https://mashukui.github.io/blog/posts/excel-automation",
       "inLanguage": "zh-CN"
     },
     {
@@ -49,8 +49,45 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Excel 自动化整理采集数据：从 CSV 到可复用报表",
-          "item": "https://mashukui.github.io/blog/posts/excel-automation.html"
+          "name": "Excel 自动化：把采集数据整理成周报",
+          "item": "https://mashukui.github.io/blog/posts/excel-automation"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "需要学 Python 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定，先用 Excel 跑通流程。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WPS 能用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以，入口名称略有差异。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "数据量上限？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "单表约 104 万行。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "模板能复用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以，每周替换数据源。"
+          }
         }
       ]
     }
@@ -59,16 +96,108 @@
 </script>
 <style>.post-title-en{font-size:clamp(30px,5vw,44px);line-height:1.25;margin:14px 0}</style>
 <style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
 .author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
 .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
 .author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
 .author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
+</style>
+<style>
+.article figure{margin:22px 0}
+.article figure img{max-width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+.article figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.article table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.article th{background:#f3f3f0;font-weight:700}
+.related{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.related h2{font-size:18px;margin:0 0 8px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:6px 0}
+.author-card{display:flex;gap:14px;align-items:flex-start;margin:34px 0 0;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fafafb}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+.author-card p{margin:6px 0;font-size:14px;color:var(--muted)}
+.author-card strong{font-size:15px}
+.cta-sub{font-size:13px;color:var(--muted);margin-top:12px!important}
 </style>
 </head><body>
 <header class="header"><nav class="nav"><a href="/">马哥数据采集</a><div class="links"><a href="/blog/" data-zh="博客首页" data-en="Blog">博客首页</a><a href="/" data-zh="产品目录" data-en="Home">产品目录</a><div class="language-switch" aria-label="Language switch"><button type="button" data-language="zh-CN" aria-pressed="true">中文</button><button type="button" data-language="en" aria-pressed="false">EN</button></div></div></nav></header>
-<main class="article"><div class="lang-zh"><div class="eyebrow">方法与工具 · Excel 自动化</div><h1>Excel 自动化整理采集数据：从 CSV 到可复用报表</h1><div class="date"><time datetime="2026-11-22">2026-11-22</time> · 马哥数据采集</div><p class="lead">介绍 CSV 导入、字段规范化、筛选透视、重复检查和自动化报表的基础流程。</p><h2>一、规范文件与工作表</h2><p>建议保留 Raw 原始数据、Clean 清洗数据、Summary 汇总结果三个层次。文件名包含来源、主题和日期，避免不同批次覆盖。</p><h2>二、正确导入 CSV</h2><p>导入时检查编码、分隔符和日期格式。长数字标识符应按文本导入，避免 Excel 自动转为科学计数法或丢失前导零。</p><h2>三、建立清洗步骤</h2><ul><li>检查列名并统一命名。</li><li>按稳定 ID 检查重复记录。</li><li>将日期、数字和文本列设置正确类型。</li><li>标记缺失值和异常值，不要随意覆盖原值。</li></ul><h2>四、使用筛选与透视表</h2><p>透视表适合按日期、关键词、视频或内容类别汇总。制作图表前先确认指标口径一致，例如互动总量、平均值和去重后的内容数量代表不同含义。</p><h2>五、把流程做成模板</h2><p>将固定列名、格式、筛选条件和汇总表保存为模板。每次导入新数据后，先检查字段结构是否变化，再刷新汇总结果。</p><div class="note">自动化不等于无需检查。每次更新数据后，仍应抽样核对原始来源，并在报表中注明采集时间和筛选条件。</div>
-<div class="cta"><strong>相关工具</strong><p>可进一步查看对应产品的功能介绍、适用范围和当前版本说明。</p><a href="/xhs_one_spider/">查看相关产品 →</a></div><a class="back" href="/blog/">← 返回技术博客</a></div><div class="lang-en" lang="en"><div class="eyebrow">Tools & Methods · Excel Automation</div><h2 class="post-title-en">Automating Data Organization in Excel: From CSV to Reusable Reports</h2><div class="date"><time datetime="2026-11-22">2026-11-22</time> · Mage Data Tools</div><p class="lead">A basic workflow for importing CSV files, standardizing fields, filtering and pivoting data, checking duplicates, and generating reusable reports.</p><h2>1. Standardize Files and Worksheets</h2><p>Keep three layers: Raw for original data, Clean for processed data, and Summary for aggregated results. Include the source, topic, and date in filenames to avoid overwriting different batches.</p><h2>2. Import CSV Files Correctly</h2><p>Check encoding, delimiters, and date formats during import. Import long numeric identifiers as text to prevent Excel from converting them to scientific notation or removing leading zeros.</p><h2>3. Define the Cleaning Steps</h2><ul><li>Check column names and standardize naming.</li><li>Check duplicates using stable IDs.</li><li>Assign the correct types to date, numeric, and text columns.</li><li>Flag missing and abnormal values instead of overwriting the originals without review.</li></ul><h2>4. Use Filters and Pivot Tables</h2><p>Pivot tables are useful for summarizing by date, keyword, video, or content category. Before charting, confirm that metric definitions are consistent: total engagement, averages, and deduplicated content counts represent different things.</p><h2>5. Turn the Workflow into a Template</h2><p>Save standard column names, formatting, filters, and summary tables as a template. When new data is imported, check whether the field structure has changed before refreshing summaries.</p><div class="note">Automation does not eliminate review. After each data update, sample-check the original sources and state the collection date and filtering criteria in the report.</div><div class="cta"><strong>Related Tool</strong><p>See the related product page for features, scope, and current version information.</p><a href="/xhs_one_spider/">View related product →</a></div><a class="back" href="/blog/">← Back to the technical blog</a></div><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-22</p></div></aside></main>
-<footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>(function(){var buttons=document.querySelectorAll('[data-language]');var titleZh=document.querySelector('.lang-zh h1');var titleEn=document.querySelector('.lang-en .post-title-en');var desc=document.querySelector('meta[name="description"]');var ogTitle=document.querySelector('meta[property="og:title"]');var ogDesc=document.querySelector('meta[property="og:description"]');var navLinks=document.querySelectorAll('.links a[data-zh]');var originalTitle=titleZh?titleZh.textContent+' - 马哥数据采集':document.title;var originalDesc=desc?desc.getAttribute('content'):'';var originalOgDesc=ogDesc?ogDesc.getAttribute('content'):originalDesc;function setLanguage(value){var lang=value==='en'?'en':'zh-CN';document.documentElement.lang=lang;buttons.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-language')===lang));});navLinks.forEach(function(a){a.textContent=lang==='en'?a.getAttribute('data-en'):a.getAttribute('data-zh');});if(lang==='en'){document.title=(titleEn?titleEn.textContent:'Article')+' - Mage Data Tools';if(desc)desc.setAttribute('content',titleEn?titleEn.textContent+'. Practical guidance from Mage Data Tools.':'');if(ogTitle)ogTitle.setAttribute('content',titleEn?titleEn.textContent:'');if(ogDesc)ogDesc.setAttribute('content',desc?desc.getAttribute('content'):'');}else{document.title=originalTitle;if(desc)desc.setAttribute('content',originalDesc);if(ogTitle)ogTitle.setAttribute('content',titleZh?titleZh.textContent:'');if(ogDesc)ogDesc.setAttribute('content',originalOgDesc);}try{localStorage.setItem('mashukui-home-language',lang);}catch(e){}}buttons.forEach(function(b){b.addEventListener('click',function(){setLanguage(b.getAttribute('data-language'));});});var saved='zh-CN';try{saved=localStorage.getItem('mashukui-home-language')||'zh-CN';}catch(e){}setLanguage(saved);})();</script><script>
+<main class="article"><div class="lang-zh"><div class="eyebrow">方法与工具 · Excel 自动化</div><h1>Excel 自动化：把采集数据整理成周报</h1><div class="date"><time datetime="2026-11-24">2026-11-24</time> · 马哥数据采集</div><p class="lead">从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。</p>
+<h2>一、为什么用 Excel 处理采集数据</h2><p>采集工具导出的通常是 CSV：一行一条记录，字段固定。对大多数选题、舆情和运营任务来说，筛选、去重、透视表、做图这四件事，Excel 或 WPS 就够用，不必一上来写代码。数据量大、清洗规则复杂时，再交给 Python；两者不是替代关系。</p>
+<h2>二、CSV 打开乱码怎么办</h2><p>Excel 双击 CSV 时经常按本地编码打开，中文就变成乱码。正确做法是：打开 Excel → 数据 → 从文本/CSV → 选择文件 → 编码选 UTF-8 → 加载。不要用「先改扩展名」或「记事本另存」这类偏方，容易把字段和编码一起弄坏。</p>
+<h2>三、清洗五步</h2><ol><li>备份原始文件，后续所有操作在副本上做。</li><li>去重：按评论 ID、作品链接或「链接 + 时间」删除重复值。</li><li>空值与异常：筛选空白和异常字符，先标记，不要直接删除。</li><li>日期统一：用「分列」或日期格式统一成 YYYY-MM-DD，方便排序和透视。</li><li>抽样核对：随机抽 10 条回到原视频/原博文，确认字段没有错位。</li></ol><figure><img src="/blog/images/weibo-comments-result.jpg" width="1200" height="635" loading="lazy" alt="采集结果在 Excel 中打开"><figcaption>图 1：采集导出的表格在 Excel 中打开后，先检查列名、数据类型和空值。</figcaption></figure>
+<h2>四、常用公式与功能</h2><table><thead><tr><th>需求</th><th>功能 / 公式</th><th>说明</th></tr></thead><tbody><tr><td>去重</td><td>数据 → 删除重复值</td><td>先备份，按关键列去重</td></tr><tr><td>空值</td><td>筛选 → 空白</td><td>标记原因，不要直接删</td></tr><tr><td>日期统一</td><td>TEXT / DATEVALUE</td><td>输出 YYYY-MM-DD</td></tr><tr><td>关键词筛选</td><td>筛选 / SEARCH</td><td>多关键词用辅助列</td></tr><tr><td>按作者统计</td><td>COUNTIFS / SUMIFS</td><td>评论数、点赞数汇总</td></tr><tr><td>快速汇总</td><td>插入 → 数据透视表</td><td>按平台、日期、作者分组</td></tr><tr><td>合并多表</td><td>数据 → 获取数据 → 追加查询</td><td>字段名一致，新增来源列</td></tr></tbody></table>
+<h2>五、多个 CSV 怎么合并</h2><p>不要把文件一个个复制粘贴。用 Power Query：数据 → 获取数据 → 从文件 → 从文件夹，合并后追加查询；字段名不一致时先统一列名，再加一列「来源文件」。以后新增文件，点「刷新」即可，不用重做。</p>
+<h2>六、把周报做成模板</h2><p>固定五块：本周采集范围（平台、关键词、日期）、数据量、关键发现（3 条，附原文示例）、异常与缺口、下周计划。透视表负责汇总，图表只放 1–2 张；模板每周复制一份，只改数据和日期，避免每次重新排版。</p>
+<h2>七、常见报错与排查</h2><h3>中文乱码</h3><p>用「从文本/CSV」导入并选 UTF-8；不要双击打开。</p><h3>长数字变科学计数</h3><p>导入时把该列设为文本，或先加英文单引号；微博 id、视频 id 很容易中招。</p><h3>前导零丢失</h3><p>把列格式设为文本再粘贴，例如以 0 开头的编号。</p><h3>公式不重算</h3><p>公式 → 计算选项 → 自动；或按 F9 手动重算。</p><h3>文件被占用</h3><p>采集过程中不要用 Excel 打开结果文件，需要查看时先复制一份。</p>
+<h2>八、隐私与合规</h2><p>表格里可能包含昵称、主页、IP 属地等信息。对外分享前先删除或脱敏，不要把原始表上传到不明网盘；给客户的报告只保留必要字段和代表性样本，并注明数据来源和采集日期。</p>
+<h2>九、常见问题</h2><h3>需要学 Python 吗？</h3><p>不一定。先用 Excel 把流程跑通，遇到重复劳动或数据量过大再考虑 Python。</p><h3>WPS 能用吗？</h3><p>可以，去重、透视表、Power Query 类功能在 WPS 中也有对应入口，名称略有差异。</p><h3>数据量上限是多少？</h3><p>Excel 单表约 104 万行；超过这个量级建议用数据库或 Python。</p><h3>模板能复用吗？</h3><p>可以，把清洗步骤和透视表做成模板，每周只替换数据源。</p>
+<h2>十、延伸阅读：我的知乎回答</h2><p>如果你更习惯在知乎看长文，我在这篇回答里补充了数据整理和自动化的一些思路，可以作为本文的延伸：<a href="https://www.zhihu.com/question/315655985/answer/2436957552" target="_blank" rel="noopener">查看知乎回答 →</a></p>
+<div class="cta"><strong>相关工具</strong><p>需要批量采集时，可以用对应工具导出 CSV，再做清洗和分析。</p><a href="/?utm_source=blog&utm_medium=article&utm_campaign=excel-automation" data-track="tools">查看采集工具目录 →</a><p class="cta-sub">关注公众号「老男孩的平凡之路」，回复「工具」获取使用说明。</p></div>
+<h2>十一、三个常见误区</h2><p>先清洗再备份，出错无法回退；把空值直接删掉，导致样本偏差；把所有字段都设成文本，后面没法求和和透视。建议先备份、先标记后删除，只对 id、编号类字段用文本格式；公式和透视表尽量基于原始列，不要反复复制粘贴。</p>
+<h2>十二、清洗日志怎么写</h2><p>记录四件事：数据来源、清洗步骤、排除规则、输出文件版本。下次复用或交接时，别人能看懂你为什么删了某条数据；出现争议时，也能快速定位到具体批次。</p>
+<h2>十三、一份可复用的检查清单</h2><ol><li>原始文件已备份。</li><li>编码、列名、日期格式已统一。</li><li>去重键已确定。</li><li>空值和异常已标记。</li><li>已抽样回到原文核对。</li><li>报告注明数据范围和采集日期。</li></ol><p>把清单贴在模板第一行，每次照着做，能省掉大部分返工；规则变了，记得同步更新日志和模板。另外，模板不必追求复杂：能稳定跑完、别人看得懂，比堆满公式更重要；每周花 10 分钟复盘一次，比月底补一周的数据更省力，也更容易坚持下去。</p><div class="related"><h2>相关阅读</h2><ul><li><a href="/blog/posts/data-cleaning.html">采集后的数据怎么清洗？</a></li><li><a href="/blog/posts/douyin-comments.html">抖音评论数据怎么采集和整理？</a></li><li><a href="/blog/posts/weibo-keyword.html">微博舆情数据怎么整理？</a></li></ul></div>
+<a class="back" href="/blog/">← 返回技术博客</a><aside class="author-card"><div class="author-avatar">马</div><div><strong>马哥python说</strong><p>10 年+ 程序员，专注社交媒体数据采集。GitHub：<a href="https://github.com/mashukui">mashukui</a> · 公众号：<a href="https://github.com/mashukui/mashukui/blob/main/wechat2.png">老男孩的平凡之路</a></p><p>最后更新：2026-11-24</p></div></aside></div><div class="lang-en" lang="en"><div class="eyebrow">方法与工具 · Excel 自动化</div><h2 class="post-title-en">Excel 自动化：把采集数据整理成周报</h2><div class="date"><time datetime="2026-11-24">2026-11-24</time> · Mage Data Tools</div><p class="lead">从 CSV 导入、去重清洗、透视表到多表合并和周报模板，附常用公式表、常见报错与隐私提示。</p>
+<h2>1. Why Use Excel for Collected Data</h2><p>Collection tools usually export CSV: one row per record with fixed columns. For most research, public-opinion, and operations tasks, filtering, deduplication, pivot tables, and charts are enough in Excel or WPS. Move to Python when the data or cleaning rules outgrow a spreadsheet.</p>
+<h2>2. Fix Garbled CSV</h2><p>Double-clicking a CSV often uses the local encoding and garbles Chinese. Use Data → From Text/CSV → choose the file → Encoding: UTF-8 → Load. Avoid renaming the extension or re-saving in Notepad.</p>
+<h2>3. Five Cleaning Steps</h2><ol><li>Back up the raw file and work on a copy.</li><li>Deduplicate by comment ID, video URL, or URL plus time.</li><li>Flag empty and abnormal values instead of deleting them.</li><li>Normalize dates to YYYY-MM-DD for sorting and pivots.</li><li>Spot-check ten records against the original source.</li></ol><figure><img src="/blog/images/weibo-comments-result.jpg" width="1200" height="635" loading="lazy" alt="Collected data opened in Excel"><figcaption>Figure 1: check column names, data types, and empty values before cleaning.</figcaption></figure>
+<h2>4. Useful Formulas and Features</h2><table><thead><tr><th>Task</th><th>Feature / formula</th><th>Note</th></tr></thead><tbody><tr><td>Deduplicate</td><td>Data → Remove Duplicates</td><td>Back up first; choose key columns</td></tr><tr><td>Empty values</td><td>Filter → Blanks</td><td>Flag the reason, do not delete</td></tr><tr><td>Dates</td><td>TEXT / DATEVALUE</td><td>Output YYYY-MM-DD</td></tr><tr><td>Keyword filter</td><td>Filter / SEARCH</td><td>Use a helper column for multiple terms</td></tr><tr><td>Stats by author</td><td>COUNTIFS / SUMIFS</td><td>Aggregate comments and likes</td></tr><tr><td>Summary</td><td>Insert → PivotTable</td><td>Group by platform, date, author</td></tr><tr><td>Merge files</td><td>Data → Get Data → Append</td><td>Align column names; add a source column</td></tr></tbody></table>
+<h2>5. Merge Multiple CSV Files</h2><p>Do not copy and paste file by file. Use Power Query: Data → Get Data → From File → From Folder, then append queries. Align column names and add a source-file column; refresh after adding new files instead of rebuilding.</p>
+<h2>6. Build a Weekly Report Template</h2><p>Keep five blocks: collection scope (platform, keyword, date), row count, three key findings with examples, anomalies and gaps, and next week's plan. Use a pivot table for aggregation and one or two charts; copy the template each week and replace the data source.</p>
+<h2>7. Common Errors</h2><h3>Garbled text</h3><p>Import as UTF-8 through From Text/CSV instead of double-clicking.</p><h3>Long numbers in scientific notation</h3><p>Set the column to Text during import; IDs are easily affected.</p><h3>Lost leading zeros</h3><p>Format the column as Text before pasting codes that start with zero.</p><h3>Formulas not recalculating</h3><p>Set calculation to Automatic or press F9.</p><h3>File locked</h3><p>Do not open the CSV in Excel during collection; copy it first.</p>
+<h2>8. Privacy and Compliance</h2><p>Tables may contain nicknames, profiles, and IP locations. Remove or mask them before sharing, avoid uploading raw data to unknown drives, and keep only necessary fields in client reports.</p>
+<h2>9. FAQ</h2><h3>Do I need Python?</h3><p>Not necessarily. Build the workflow in Excel first, then move to Python when repetition or volume grows.</p><h3>Does WPS work?</h3><p>Yes; the features exist with slightly different names.</p><h3>What is the size limit?</h3><p>About 1.04 million rows per sheet; beyond that, use a database or Python.</p><h3>Can I reuse the template?</h3><p>Yes, keep the cleaning steps and pivot table and replace the data source each week.</p>
+<h2>10. Further Reading: My Zhihu Answer</h2><p>If you prefer long-form reading on Zhihu, I added more notes on data organization and automation in this answer: <a href="https://www.zhihu.com/question/315655985/answer/2436957552" target="_blank" rel="noopener">Read the Zhihu answer →</a></p>
+<div class="cta"><strong>Related Tool</strong><p>For bulk collection, use the related tool to export CSV, then clean and analyze it.</p><a href="/?utm_source=blog&utm_medium=article&utm_campaign=excel-automation" data-track="tools">View the tool catalog →</a><p class="cta-sub">Follow the WeChat account 老男孩的平凡之路 for setup notes.</p></div>
+<h2>11. Three Common Mistakes</h2><p>Cleaning before backing up, deleting empty values outright, and formatting every column as text. Back up first, flag before deleting, and use text format only for IDs and codes.</p>
+<h2>12. Keep a Cleaning Log</h2><p>Record the source, cleaning steps, exclusion rules, and output version so the next person can see why a record was removed and which batch it came from.</p>
+<h2>13. A Reusable Checklist</h2><ol><li>Raw file backed up.</li><li>Encoding, column names, and dates unified.</li><li>Deduplication keys defined.</li><li>Empty and abnormal values flagged.</li><li>Sample verified against the source.</li><li>Report states data scope and collection date.</li></ol><div class="related"><h2>Related reading</h2><ul><li><a href="/blog/posts/data-cleaning.html">How to clean collected data</a></li><li><a href="/blog/posts/douyin-comments.html">How to collect Douyin comments</a></li><li><a href="/blog/posts/weibo-keyword.html">How to organize Weibo public-opinion data</a></li></ul></div>
+<a class="back" href="/blog/">← Back to the technical blog</a><aside class="author-card"><div class="author-avatar">M</div><div><strong>Mage (马哥python说)</strong><p>10+ years as a developer, focused on social media data collection. GitHub: <a href="https://github.com/mashukui">mashukui</a> · WeChat: 老男孩的平凡之路</p><p>Last updated: 2026-11-24</p></div></aside></div></main><footer class="footer">© 2026 马哥数据采集 · <a href="https://github.com/mashukui">GitHub</a></footer><script>
+(function(){
+  var buttons=document.querySelectorAll('[data-language]');
+  var zh=document.querySelector('.lang-zh');
+  var en=document.querySelector('.lang-en');
+  var titleZh=document.querySelector('.lang-zh h1');
+  var titleEn=document.querySelector('.lang-en .post-title-en');
+  var desc=document.querySelector('meta[name="description"]');
+  var ogTitle=document.querySelector('meta[property="og:title"]');
+  var ogDesc=document.querySelector('meta[property="og:description"]');
+  var navLinks=document.querySelectorAll('.links a[data-zh]');
+  var originalTitle=titleZh?titleZh.textContent+' - 马哥数据采集':document.title;
+  var originalDesc=desc?desc.getAttribute('content'):'';
+  var originalOgDesc=ogDesc?ogDesc.getAttribute('content'):originalDesc;
+  function setLanguage(value){
+    var lang=value==='en'?'en':'zh-CN';
+    document.documentElement.lang=lang;
+    buttons.forEach(function(button){button.setAttribute('aria-pressed',String(button.getAttribute('data-language')===lang));});
+    navLinks.forEach(function(link){link.textContent=lang==='en'?link.getAttribute('data-en'):link.getAttribute('data-zh');});
+    if(lang==='en'){
+      document.title=(titleEn?titleEn.textContent:'Article')+' - Mage Data Tools';
+      if(desc)desc.setAttribute('content',titleEn?titleEn.textContent+'. Practical guidance from Mage Data Tools.':'');
+      if(ogTitle)ogTitle.setAttribute('content',titleEn?titleEn.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',desc?desc.getAttribute('content'):'');
+    }else{
+      document.title=originalTitle;
+      if(desc)desc.setAttribute('content',originalDesc);
+      if(ogTitle)ogTitle.setAttribute('content',titleZh?titleZh.textContent:'');
+      if(ogDesc)ogDesc.setAttribute('content',originalOgDesc);
+    }
+    try{localStorage.setItem('mashukui-home-language',lang);}catch(error){}
+  }
+  buttons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.getAttribute('data-language'));});});
+  var saved='zh-CN';try{saved=localStorage.getItem('mashukui-home-language')||'zh-CN';}catch(error){}
+  setLanguage(saved);
+})();
+</script><script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -79,9 +208,17 @@ var _hmt = _hmt || [];
 </script>
 <script>
 (function(){
-  document.querySelectorAll('.cta a').forEach(function(a){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
     a.addEventListener('click',function(){
-      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('href'),location.pathname]);}
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
+    });
+  });
+})();
+</script><script>
+(function(){
+  document.querySelectorAll('.cta a[data-track]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(window._hmt){_hmt.push(['_trackEvent','blog_cta',a.getAttribute('data-track'),location.pathname]);}
     });
   });
 })();
